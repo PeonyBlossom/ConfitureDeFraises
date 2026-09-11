@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>EcaStyle | Fine Art Gallery & Cute Collections</title>
+
+    <!-- Google Fonts for Cute Cottagecore Aesthetics -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Sacramento&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
+    <style>
+        /* Sweet Pink & Cottagecore Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #4a3b52;
+            background-color: #fffdfa;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: #3b233a;
+        }
+
+        .handwritten {
+            font-family: 'Sacramento', cursive;
+            color: #ec4899;
+            font-size: 1.4em;
+        }
+
+        /* Top Announcement Banner */
+        .top-banner {
+            background: linear-gradient(90deg, #fbcfe8 0%, #f472b6 50%, #fbcfe8 100%);
+            font-size: 12px;
+            font-weight: 500;
+            padding: 9px 20px;
+            color: #831843;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #fce7f3;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .navbar-brand h3 {
+            font-family: 'Playfair Display', serif;
+            color: #831843;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 26px;
+        }
+
+        .navbar-brand span {
+            color: #f472b6;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #704d6d;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            font-size: 13px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #ec4899;
+        }
+
+        .cart-trigger {
+            cursor: pointer;
+            background: #fdf2f8;
+            border: 1px solid #fbcfe8;
+            padding: 6px 16px;
+            border-radius: 20px;
+            color: #db2777;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+
+        .cart-trigger:hover {
+            background: #fce7f3;
+            transform: scale(1.03);
+        }
+
+        .cart-badge {
+            background: #ec4899;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 22px;
+            color: #831843;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: radial-gradient(circle at 10% 20%, #fdf2f8 0%, #fce7f3 40%, #fbcfe8 90%);
+            padding: 70px 24px;
+            color: #831843;
+            text-align: center;
+            border-bottom: 1px solid #fce7f3;
+        }
+
+        .page-header h1 {
+            color: #831843;
+            font-size: 46px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .breadcrumbs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            font-size: 13px;
+            color: #704d6d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .breadcrumbs a {
+            color: #ec4899;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .breadcrumbs a:hover {
+            color: #be185d;
+        }
+
+        /* Gallery Grid Section */
+        .gallery-section {
+            padding: 80px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 38px;
+            font-weight: 700;
+            color: #831843;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            color: #866380;
+            font-size: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Filter Tabs */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: #ffffff;
+            color: #831843;
+            border: 1px solid #fbcfe8;
+            padding: 8px 22px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: #ec4899;
+            color: #ffffff;
+            border-color: #ec4899;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: #ffffff;
+            border: 1px solid #fce7f3;
+            border-radius: 20px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 8px 20px rgba(244, 114, 182, 0.06);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: #f472b6;
+            box-shadow: 0 16px 32px rgba(244, 114, 182, 0.18);
+        }
+
+        /* Dual-View Image Container */
+        .product-img-holder {
+            background-color: #fdf2f8;
+            margin-bottom: 14px;
+            overflow: hidden;
+            border-radius: 14px;
+            height: 250px;
+            position: relative;
+            border: 1px solid #fbcfe8;
+        }
+
+        .view-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .view-layer.active {
+            opacity: 1;
+        }
+
+        .view-layer img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Image Switcher Bar */
+        .img-switcher {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fffdfa;
+            border: 1px solid #fce7f3;
+            padding: 6px 12px;
+            border-radius: 12px;
+            margin-bottom: 14px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #831843;
+        }
+
+        .switcher-btn {
+            background: #fdf2f8;
+            border: 1px solid #fbcfe8;
+            color: #831843;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .switcher-btn:hover {
+            background: #fce7f3;
+        }
+
+        .product-tag {
+            display: inline-block;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ec4899;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .product-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #831843;
+            margin-bottom: 6px;
+        }
+
+        .product-description {
+            font-size: 13px;
+            color: #866380;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
+
+        /* Edition & Print Size Selector */
+        .size-selector-group {
+            margin-bottom: 15px;
+        }
+
+        .size-label {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            color: #831843;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .size-select {
+            width: 100%;
+            padding: 8px 12px;
+            border-radius: 10px;
+            border: 1px solid #fbcfe8;
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            color: #4a3b52;
+            background: #fffdfa;
+            outline: none;
+        }
+
+        .size-select:focus {
+            border-color: #ec4899;
+        }
+
+        .card-footer {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding-top: 15px;
+            border-top: 1px dashed #fce7f3;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #be185d;
+        }
+
+        .btn-paypal-direct {
+            width: 100%;
+            background-color: #ffc439;
+            color: #111;
+            padding: 10px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: 1px solid #f2b82e;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .btn-paypal-direct:hover {
+            background-color: #f2b82e;
+        }
+
+        /* Commission Banner Callout */
+        .commission-banner {
+            background: linear-gradient(135deg, #fbcfe8 0%, #f472b6 100%);
+            color: #831843;
+            padding: 70px 24px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .commission-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .commission-banner h2 {
+            color: #831843;
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .commission-banner p {
+            color: #701a39;
+            font-size: 16px;
+            margin-bottom: 28px;
+        }
+
+        .btn-commission {
+            background-color: #831843;
+            color: #ffffff;
+            padding: 14px 36px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(131, 24, 67, 0.2);
+        }
+
+        .btn-commission:hover {
+            background-color: #500724;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #3b233a;
+            color: #fbcfe8;
+            padding: 60px 24px 40px 24px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 868px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #ffffff;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+                border-top: 1px solid #fce7f3;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .page-header h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. TOP ANNOUNCEMENT BAR -->
+    <div class="top-banner">
+        🌸 Free Shipping on US Orders $100+* Does not include originals &bull; Handcrafted with Love in Maryland ✨
+    </div>
+
+    <!-- 2. BRAND NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a class="navbar-brand" href="index.html">
+                <h3>EcaStyle<span>.art</span> 🌸</h3>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuToggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#categories">Categories</a></li>
+                <li><a href="about.html">About Eca</a></li>
+                <li><a href="project.html" class="active">Shop Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <a href="cart.html" class="cart-trigger">
+                        <i class="fa-solid fa-heart"></i>
+                        <span>Cart</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 3. PAGE HEADER HERO -->
+    <section class="page-header">
+        <h1>Fine Art Gallery 🌸</h1>
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a>
+            <span>//</span>
+            <span>Gallery</span>
+        </div>
+    </section>
+
+    <!-- 4. MAIN GALLERY PRODUCTS -->
+    <section class="gallery-section">
+        <div class="section-intro">
+            <h2 class="section-title">Original Works & Keepsakes</h2>
+            <p class="section-subtitle">Explore original canvas paintings, sweet portraits, landscapes, and custom creations by artist Eca. All artworks are available as prints, original canvases, or sticker sets!</p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All Artworks</button>
+            <button class="filter-btn" data-filter="landscape">Landscapes</button>
+            <button class="filter-btn" data-filter="portrait">Portraits</button>
+            <button class="filter-btn" data-filter="abstract">Abstract</button>
+        </div>
+
+        <!-- Gallery Grid (Ordered: 18, 22, 21, 24, 19, 20, 17, 16, 23 first, then 1-15, with Sticker option in every dropdown) -->
+        <div class="grid" id="galleryGrid">
+
+            <!-- 1. Project 18 (Crimson Rose) -->
+            <div class="product-card" data-category="abstract">
+                <div class="product-img-holder">
+                    <div class="view-layer active" id="card18-view1">
+                        <img src="assets/images/project/project18.png" alt="Crimson Rose Asset">
+                    </div>
+                    <div class="view-layer" id="card18-view2">
+                        <svg viewBox="0 0 400 300" width="100%" height="100%">
+                            <circle cx="200" cy="140" r="80" fill="#be123c"/>
+                            <circle cx="200" cy="140" r="55" fill="#e11d48"/>
+                            <circle cx="200" cy="140" r="30" fill="#fb7185"/>
+                            <text x="200" y="260" font-family="'Sacramento', cursive" font-size="28" fill="#831843" text-anchor="middle">Crimson Rose</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="img-switcher">
+                    <button class="switcher-btn" onclick="switchImage(18, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="card18-label">🖼️ Asset Photo</span>
+                    <button class="switcher-btn" onclick="switchImage(18, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <span class="product-tag">Floral Canvas</span>
+                <h3 class="product-title">Crimson Rose</h3>
+                <p class="product-description">Stunning round canvas study highlighting a deep rich crimson rose with subtle golden lighting.</p>
+                <div class="size-selector-group">
+                    <label class="size-label" for="size-18">Select Edition / Size:</label>
+                    <select id="size-18" class="size-select" onchange="updateCardPrice(18, 'Crimson Rose')">
+                        <option value="18" data-size="Small Print">Small Print — $18.00</option>
+                        <option value="24" data-size="Larger Print">Larger Print — $24.00</option>
+                        <option value="41" data-size="Real-Sized Print">Real-Sized Print — $41.00</option>
+                        <option value="12" data-size="Vinyl Sticker Set (3 pcs)">Vinyl Sticker Set (3 pcs) — $12.00</option>
+                        <option value="290" data-size="Original Canvas">Original Painting (One-of-a-kind) — $290.00</option>
+                    </select>
+                </div>
+                <div class="card-footer">
+                    <div class="price-row">
+                        <span class="product-price" id="price-18">$18.00</span>
+                    </div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-18">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="ecastyle@keemail.me">
+                        <input type="hidden" name="item_name" id="item-name-18" value="Crimson Rose (Small Print)">
+                        <input type="hidden" name="amount" id="item-amount-18" value="18.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <button type="submit" class="btn-paypal-direct"><i class="fa-brands fa-paypal"></i> Buy with PayPal</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 2. Project 22 (Golden Horizon Home) -->
+            <div class="product-card" data-category="landscape">
+                <div class="product-img-holder">
+                    <div class="view-layer active" id="card22-view1">
+                        <img src="assets/images/project/project22.png" alt="Golden Horizon Asset">
+                    </div>
+                    <div class="view-layer" id="card22-view2">
+                        <svg viewBox="0 0 400 300" width="100%" height="100%">
+                            <rect width="400" height="300" fill="#fef9c3"/>
+                            <circle cx="300" cy="80" r="35" fill="#f59e0b" opacity="0.8"/>
+                            <polygon points="170,180 230,180 230,230 170,230" fill="#fbbf24"/>
+                            <polygon points="160,180 200,135 240,180" fill="#b45309"/>
+                            <text x="200" y="270" font-family="'Sacramento', cursive" font-size="28" fill="#854d0e" text-anchor="middle">Golden Horizon Home</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="img-switcher">
+                    <button class="switcher-btn" onclick="switchImage(22, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="card22-label">🖼️ Asset Photo</span>
+                    <button class="switcher-btn" onclick="switchImage(22, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <span class="product-tag">Landscape</span>
+                <h3 class="product-title">Golden Horizon Home</h3>
+                <p class="product-description">Warm rustic landscape featuring a charming cottage under a bright sunlit sky.</p>
+                <div class="size-selector-group">
+                    <label class="size-label" for="size-22">Select Edition / Size:</label>
+                    <select id="size-22" class="size-select" onchange="updateCardPrice(22, 'Golden Horizon Home')">
+                        <option value="18" data-size="Small Print">Small Print — $18.00</option>
+                        <option value="24" data-size="Larger Print">Larger Print — $24.00</option>
+                        <option value="41" data-size="Real-Sized Print">Real-Sized Print — $41.00</option>
+                        <option value="12" data-size="Vinyl Sticker Set (3 pcs)">Vinyl Sticker Set (3 pcs) — $12.00</option>
+                        <option value="310" data-size="Original Canvas">Original Painting (One-of-a-kind) — $310.00</option>
+                    </select>
+                </div>
+                <div class="card-footer">
+                    <div class="price-row">
+                        <span class="product-price" id="price-22">$18.00</span>
+                    </div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-22">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="ecastyle@keemail.me">
+                        <input type="hidden" name="item_name" id="item-name-22" value="Golden Horizon Home (Small Print)">
+                        <input type="hidden" name="amount" id="item-amount-22" value="18.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <button type="submit" class="btn-paypal-direct"><i class="fa-brands fa-paypal"></i> Buy with PayPal</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 3. Project 21 (Spring Whispers) -->
+            <div class="product-card" data-category="portrait">
+                <div class="product-img-holder">
+                    <div class="view-layer active" id="card21-view1">
+                        <img src="assets/images/project/project21.png" alt="Spring Whispers Asset">
+                    </div>
+                    <div class="view-layer" id="card21-view2">
+                        <svg viewBox="0 0 400 300" width="100%" height="100%">
+                            <rect width="400" height="300" fill="#f0fdf4"/>
+                            <circle cx="200" cy="130" r="50" fill="#86efac" opacity="0.4"/>
+                            <path d="M140 180 Q 200 130 260 180" fill="none" stroke="#166534" stroke-width="4"/>
+                            <text x="200" y="270" font-family="'Sacramento', cursive" font-size="28" fill="#166534" text-anchor="middle">Spring Whispers</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="img-switcher">
+                    <button class="switcher-btn" onclick="switchImage(21, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="card21-label">🖼️ Asset Photo</span>
+                    <button class="switcher-btn" onclick="switchImage(21, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <span class="product-tag">Portrait Art</span>
+                <h3 class="product-title">Spring Whispers</h3>
+                <p class="product-description">Gentle portrait surrounded by blooming seasonal florals and pastel greenery.</p>
+                <div class="size-selector-group">
+                    <label class="size-label" for="size-21">Select Edition / Size:</label>
+                    <select id="size-21" class="size-select" onchange="updateCardPrice(21, 'Spring Whispers')">
+                        <option value="18" data-size="Small Print">Small Print — $18.00</option>
+                        <option value="24" data-size="Larger Print">Larger Print — $24.00</option>
+                        <option value="41" data-size="Real-Sized Print">Real-Sized Print — $41.00</option>
+                        <option value="12" data-size="Vinyl Sticker Set (3 pcs)">Vinyl Sticker Set (3 pcs) — $12.00</option>
+                        <option value="275" data-size="Original Canvas">Original Painting (One-of-a-kind) — $275.00</option>
+                    </select>
+                </div>
+                <div class="card-footer">
+                    <div class="price-row">
+                        <span class="product-price" id="price-21">$18.00</span>
+                    </div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-21">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="ecastyle@keemail.me">
+                        <input type="hidden" name="item_name" id="item-name-21" value="Spring Whispers (Small Print)">
+                        <input type="hidden" name="amount" id="item-amount-21" value="18.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <button type="submit" class="btn-paypal-direct"><i class="fa-brands fa-paypal"></i> Buy with PayPal</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 4. Project 24 (Cerulean Blossom) -->
+            <div class="product-card" data-category="abstract">
+                <div class="product-img-holder">
+                    <div class="view-layer active" id="card24-view1">
+                        <img src="assets/images/project/project24.png" alt="Cerulean Blossom Asset">
+                    </div>
+                    <div class="view-layer" id="card24-view2">
+                        <svg viewBox="0 0 400 300" width="100%" height="100%">
+                            <rect width="400" height="300" fill="#eff6ff"/>
+                            <circle cx="200" cy="140" r="75" fill="#3b82f6"/>
+                            <circle cx="200" cy="140" r="50" fill="#1d4ed8"/>
+                            <circle cx="200" cy="140" r="25" fill="#93c5fd"/>
+                            <text x="200" y="270" font-family="'Sacramento', cursive" font-size="28" fill="#1e40af" text-anchor="middle">Cerulean Blossom</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="img-switcher">
+                    <button class="switcher-btn" onclick="switchImage(24, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="card24-label">🖼️ Asset Photo</span>
+                    <button class="switcher-btn" onclick="switchImage(24, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <span class="product-tag">Floral Canvas</span>
+                <h3 class="product-title">Cerulean Blossom</h3>
+                <p class="product-description">Striking round blue floral piece featuring shimmering metallic dust and layered petals.</p>
+                <div class="size-selector-group">
+                    <label class="size-label" for="size-24">Select Edition / Size:</label>
+                    <select id="size-24" class="size-select" onchange="updateCardPrice(24, 'Cerulean Blossom')">
+                        <option value="18" data-size="Small Print">Small Print — $18.00</option>
+                        <option value="24" data-size="Larger Print">Larger Print — $24.00</option>
+                        <option value="41" data-size="Real-Sized Print">Real-Sized Print — $41.00</option>
+                        <option value="12" data-size="Vinyl Sticker Set (3 pcs)">Vinyl Sticker Set (3 pcs) — $12.00</option>
+                        <option value="320" data-size="Original Canvas">Original Painting (One-of-a-kind) — $320.00</option>
+                    </select>
+                </div>
+                <div class="card-footer">
+                    <div class="price-row">
+                        <span class="product-price" id="price-24">$18.00</span>
+                    </div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-24">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="ecastyle@keemail.me">
+                        <input type="hidden" name="item_name" id="item-name-24" value="Cerulean Blossom (Small Print)">
+                        <input type="hidden" name="amount" id="item-amount-24" value="18.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <button type="submit" class="btn-paypal-direct"><i class="fa-brands fa-paypal"></i> Buy with PayPal</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 5. Project 19 (Heart of the Meadow) -->
+            <div class="product-card" data-category="landscape">
+                <div class="product-img-holder">
+                    <div class="view-layer active" id="card19-view1">
+                        <img src="assets/images/project/project19.png" alt="Heart of the Meadow Asset">
+                    </div>
+                    <div class="view-layer" id="card19-view2">
+                        <svg viewBox="0 0 400 300" width="100%" height="100%">
+                            <rect width="400" height="300" fill="#fdf2f8"/>
+                            <path d="M200 90 C 140 30, 60 110, 200 220 C 340 110, 260 30, 200 90 Z" fill="#f472b6" opacity="0.6"/>
+                            <text x="200" y="270" font-family="'Sacramento', cursive" font-size="28" fill="#831843" text-anchor="middle">Heart of the Meadow</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="img-switcher">
+                    <button class="switcher-btn" onclick="switchImage(19, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="card19-label">🖼️ Asset Photo</span>
+                    <button class="switcher-btn" onclick="switchImage(19, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <span class="product-tag">Landscape Canvas</span>
+                <h3 class="product-title">Heart of the Meadow</h3>
+                <p class="product-description">Whimsical heart-framed canvas study depicting serene open fields and solitary beauty.</p>
+                <div class="size-selector-group">
+                    <label class="size-label" for="size-19">Select Edition / Size:</label>
+                    <select id="size-19" class="size-select" onchange="updateCardPrice(19, 'Heart of the Meadow')">
+                        <option value="18" data-size="Small Print">Small Print — $18.00</option>
+                        <option value="24" data-size="Larger Print">Larger Print — $24.00</option>
+                        <option value="41" data-size="Real-Sized Print">Real-Sized Print — $41.00</option>
+                        <option value="12" data-size="Vinyl Sticker Set (3 pcs)">Vinyl Sticker Set (3 pcs) — $12.00</option>
+                        <option value="295" data-size="Original Canvas">Original Painting (One-of-a-kind) — $295.00</option>
+                    </select>
+                </div>
+                <div class="card-footer">
+                    <div class="price-row">
+                        <span class="product-price" id="price-19">$18.00</span>
+                    </div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-19">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="ecastyle@keemail.me">
+                        <input type="hidden" name="item_name" id="item-name-19" value="Heart of the Meadow (Small Print)">
+                        <input type="hidden" name="amount" id="item-amount-19" value="18.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <button type="submit" class="btn-paypal-direct"><i class="fa-brands fa-paypal"></i> Buy with PayPal</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 6. Project 20 (Sunlit Blossom & Friend) -->
+            <div class="product-card" data-category="abstract">
+                <div class="product-img-holder">
+                    <div class="view-layer active" id="card20-view1">
+                        <img src="assets/images/project/project20.png" alt="Sunlit Blossom Asset">
+                    </div>
+                    <div class="view-layer" id="card20-view2">
+                        <svg viewBox="0 0 400 300" width="100%" height="100%">
+                            <rect width="400" height="300" fill="#fef9c3"/>
+                            <circle cx="200" cy="130" r="50" fill="#facc15"/>
+                            <circle cx="215" cy="115" r="8" fill="#ef4444"/>
+                            <text x="200" y="270" font-family="'Sacramento', cursive" font-size="28" fill="#854d0e" text-anchor="middle">Sunlit Blossom & Friend</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="img-switcher">
+                    <button class="switcher-btn" onclick="switchImage(20, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="card20-label">🖼️ Asset Photo</span>
+                    <button class="switcher-btn" onclick="switchImage(20, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <span class="product-tag">Abstract Floral</span>
+                <h3 class="product-title">Sunlit Blossom & Friend</h3>
+                <p class="product-description">Radiant yellow floral artwork featuring a sweet little ladybug resting peacefully.</p>
+                <div class="size-selector-group">
+                    <label class="size-label" for="size-20">Select Edition / Size:</label>
+                    <select id="size-20" class="size-select" onchange="updateCardPrice(20, 'Sunlit Blossom & Friend')">
+                        <option value="18" data-size="Small Print">Small Print — $18.00</option>
+                        <option value="24" data-size="Larger Print">Larger Print — $24.00</option>
+                        <option value="41" data-size="Real-Sized Print">Real-Sized Print — $41.00</option>
+                        <option value="12" data-size="Vinyl Sticker Set (3 pcs)">Vinyl Sticker Set (3 pcs) — $12.00</option>
+                        <option value="260" data-size="Original Canvas">Original Painting (One-of-a-kind) — $260.00</option>
+                    </select>
+                </div>
+                <div class="card-footer">
+                    <div class="price-row">
+                        <span class="product-price" id="price-20">$18.00</span>
+                    </div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-20">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="ecastyle@keemail.me">
+                        <input type="hidden" name="item_name" id="item-name-20" value="Sunlit Blossom & Friend (Small Print)">
+                        <input type="hidden" name="amount" id="item-amount-20" value="18.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <button type="submit" class="btn-paypal-direct"><i class="fa-brands fa-paypal"></i> Buy with PayPal</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 7. Project 17 (Golden Crown Muse) -->
+            <div class="product-card" data-category="portrait">
+                <div class="product-img-holder">
+                    <div class="view-layer active" id="card17-view1">
+                        <img src="assets/images/project/project17.png" alt="Golden Crown Muse Asset">
+                    </div>
+                    <div class="view-layer" id="card17-view2">
+                        <svg viewBox="0 0 400 300" width="100%" height="100%">
+                            <rect width="400" height="300" fill="#fffbeb"/>
+                            <path d="M120 180 Q 200 90 280 180" fill="none" stroke="#f59e0b" stroke-width="15"/>
+                            <circle cx="200" cy="100" r="25" fill="#f43f5e"/>
+                            <text x="200" y="270" font-family="'Sacramento', cursive" font-size="28" fill="#854d0e" text-anchor="middle">Golden Crown Muse</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="img-switcher">
+                    <button class="switcher-btn" onclick="switchImage(17, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="card17-label">🖼️ Asset Photo</span>
+                    <button class="switcher-btn" onclick="switchImage(17, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <span class="product-tag">Portrait Art</span>
+                <h3 class="product-title">Golden Crown Muse</h3>
+                <p class="product-description">Elegant profile portrait study adorned with golden hair and a lovely pink blossom crown.</p>
+                <div class="size-selector-group">
+                    <label class="size-label" for="size-17">Select Edition / Size:</label>
+                    <select id="size-17" class="size-select" onchange="updateCardPrice(17, 'Golden Crown Muse')">
+                        <option value="18" data-size="Small Print">Small Print — $18.00</option>
+                        <option value="24" data-size="Larger Print">Larger Print — $24.00</option>
+                        <option value="41" data-size="Real-Sized Print">Real-Sized Print — $41.00</option>
+                        <option value="12" data-size="Vinyl Sticker Set (3 pcs)">Vinyl Sticker Set (3 pcs) — $12.00</option>
+                        <option value="315" data-size="Original Canvas">Original Painting (One-of-a-kind) — $315.00</option>
+                    </select>
+                </div>
+                <div class="card-footer">
+                    <div class="price-row">
+                        <span class="product-price" id="price-17">$18.00</span>
+                    </div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-17">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="ecastyle@keemail.me">
+                        <input type="hidden" name="item_name" id="item-name-17" value="Golden Crown Muse (Small Print)">
+                        <input type="hidden" name="amount" id="item-amount-17" value="18.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <button type="submit" class="btn-paypal-direct"><i class="fa-brands fa-paypal"></i> Buy with PayPal</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 8. Project 16 (Pink Lotus Tranquility) -->
+            <div class="product-card" data-category="landscape">
+                <div class="product-img-holder">
+                    <div class="view-layer active" id="card16-view1">
+                        <img src="assets/images/project/project16.png" alt="Pink Lotus Tranquility Asset">
+                    </div>
+                    <div class="view-layer" id="card16-view2">
+                        <svg viewBox="0 0 400 300" width="100%" height="100%">
+                            <rect width="400" height="300" fill="#fdf2f8"/>
+                            <ellipse cx="200" cy="170" rx="90" ry="35" fill="#86efac" opacity="0.6"/>
+                            <circle cx="200" cy="140" r="40" fill="#f472b6"/>
+                            <text x="200" y="270" font-family="'Sacramento', cursive" font-size="28" fill="#831843" text-anchor="middle">Pink Lotus Tranquility</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="img-switcher">
+                    <button class="switcher-btn" onclick="switchImage(16, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="card16-label">🖼️ Asset Photo</span>
+                    <button class="switcher-btn" onclick="switchImage(16, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <span class="product-tag">Landscape</span>
+                <h3 class="product-title">Pink Lotus Tranquility</h3>
+                <p class="product-description">Peaceful water lotus bloom resting gracefully over calm aquatic foliage.</p>
+                <div class="size-selector-group">
+                    <label class="size-label" for="size-16">Select Edition / Size:</label>
+                    <select id="size-16" class="size-select" onchange="updateCardPrice(16, 'Pink Lotus Tranquility')">
+                        <option value="18" data-size="Small Print">Small Print — $18.00</option>
+                        <option value="24" data-size="Larger Print">Larger Print — $24.00</option>
+                        <option value="41" data-size="Real-Sized Print">Real-Sized Print — $41.00</option>
+                        <option value="12" data-size="Vinyl Sticker Set (3 pcs)">Vinyl Sticker Set (3 pcs) — $12.00</option>
+                        <option value="280" data-size="Original Canvas">Original Painting (One-of-a-kind) — $280.00</option>
+                    </select>
+                </div>
+                <div class="card-footer">
+                    <div class="price-row">
+                        <span class="product-price" id="price-16">$18.00</span>
+                    </div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-16">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="ecastyle@keemail.me">
+                        <input type="hidden" name="item_name" id="item-name-16" value="Pink Lotus Tranquility (Small Print)">
+                        <input type="hidden" name="amount" id="item-amount-16" value="18.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <button type="submit" class="btn-paypal-direct"><i class="fa-brands fa-paypal"></i> Buy with PayPal</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 9. Project 23 (Amber Sunset Bloom) -->
+            <div class="product-card" data-category="abstract">
+                <div class="product-img-holder">
+                    <div class="view-layer active" id="card23-view1">
+                        <img src="assets/images/project/project23.png" alt="Amber Sunset Bloom Asset">
+                    </div>
+                    <div class="view-layer" id="card23-view2">
+                        <svg viewBox="0 0 400 300" width="100%" height="100%">
+                            <rect width="400" height="300" fill="#fffbeb"/>
+                            <circle cx="200" cy="140" r="65" fill="#f97316"/>
+                            <circle cx="200" cy="140" r="40" fill="#fbbf24"/>
+                            <text x="200" y="270" font-family="'Sacramento', cursive" font-size="28" fill="#854d0e" text-anchor="middle">Amber Sunset Bloom</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="img-switcher">
+                    <button class="switcher-btn" onclick="switchImage(23, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="card23-label">🖼️ Asset Photo</span>
+                    <button class="switcher-btn" onclick="switchImage(23, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <span class="product-tag">Abstract Floral</span>
+                <h3 class="product-title">Amber Sunset Bloom</h3>
+                <p class="product-description">Expressive sunset-hued floral canvas brimming with warm orange, red, and golden tones.</p>
+                <div class="size-selector-group">
+                    <label class="size-label" for="size-23">Select Edition / Size:</label>
+                    <select id="size-23" class="size-select" onchange="updateCardPrice(23, 'Amber Sunset Bloom')">
+                        <option value="18" data-size="Small Print">Small Print — $18.00</option>
+                        <option value="24" data-size="Larger Print">Larger Print — $24.00</option>
+                        <option value="41" data-size="Real-Sized Print">Real-Sized Print — $41.00</option>
+                        <option value="12" data-size="Vinyl Sticker Set (3 pcs)">Vinyl Sticker Set (3 pcs) — $12.00</option>
+                        <option value="340" data-size="Original Canvas">Original Painting (One-of-a-kind) — $340.00</option>
+                    </select>
+                </div>
+                <div class="card-footer">
+                    <div class="price-row">
+                        <span class="product-price" id="price-23">$18.00</span>
+                    </div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-23">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="ecastyle@keemail.me">
+                        <input type="hidden" name="item_name" id="item-name-23" value="Amber Sunset Bloom (Small Print)">
+                        <input type="hidden" name="amount" id="item-amount-23" value="18.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <button type="submit" class="btn-paypal-direct"><i class="fa-brands fa-paypal"></i> Buy with PayPal</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 10. Happy Valley -->
+            <div class="product-card" data-category="landscape">
+                <div class="product-img-holder">
+                    <div class="view-layer active" id="card1-view1">
+                        <img src="assets/images/project/project1.jpg" alt="Happy Valley Asset">
+                    </div>
+                    <div class="view-layer" id="card1-view2">
+                        <svg viewBox="0 0 400 300" width="100%" height="100%">
+                            <rect width="400" height="300" fill="#fdf2f8"/>
+                            <path d="M0 220 Q 120 140 220 200 T 400 180 L 400 300 L 0 300 Z" fill="#f472b6" opacity="0.3"/>
+                            <path d="M0 250 Q 180 160 400 240 L 400 300 L 0 300 Z" fill="#ec4899" opacity="0.4"/>
+                            <circle cx="300" cy="100" r="45" fill="#fef08a"/>
+                            <text x="200" y="275" font-family="'Sacramento', cursive" font-size="30" fill="#831843" text-anchor="middle">Happy Valley</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="img-switcher">
+                    <button class="switcher-btn" onclick="switchImage(1, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="card1-label">🖼️ Asset Photo</span>
+                    <button class="switcher-btn" onclick="switchImage(1, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <span class="product-tag">Landscape Canvas</span>
+                <h3 class="product-title">Happy Valley</h3>
+                <p class="product-description">Original oil painting capturing bright serene rolling hills, warm valley light, and harmonious natural color.</p>
+                
+                <div class="size-selector-group">
+                    <label class="size-label" for="size-1">Select Edition / Size:</label>
+                    <select id="size-1" class="size-select" onchange="updateCardPrice(1, 'Happy Valley')">
+                        <option value="18" data-size="Small Print">Small Print — $18.00</option>
+                        <option value="24" data-size="Larger Print">Larger Print — $24.00</option>
+                        <option value="41" data-size="Real-Sized Print">Real-Sized Print — $41.00</option>
+                        <option value="12" data-size="Vinyl Sticker Set (3 pcs)">Vinyl Sticker Set (3 pcs) — $12.00</option>
+                        <option value="330" data-size="Original Canvas">Original Painting (One-of-a-kind) — $330.00</option>
+                    </select>
+                </div>
+
+                <div class="card-footer">
+                    <div class="price-row">
+                        <span class="product-price" id="price-1">$18.00</span>
+                    </div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-1">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="ecastyle@keemail.me">
+                        <input type="hidden" name="item_name" id="item-name-1" value="Happy Valley (Small Print)">
+                        <input type="hidden" name="amount" id="item-amount-1" value="18.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <button type="submit" class="btn-paypal-direct">
+                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 11. Lady with Roses -->
+            <div class="product-card" data-category="portrait">
+                <div class="product-img-holder">
+                    <div class="view-layer active" id="card2-view1">
+                        <img src="assets/images/project/project2.jpg" alt="Lady with Roses Asset">
+                    </div>
+                    <div class="view-layer" id="card2-view2">
+                        <svg viewBox="0 0 400 300" width="100%" height="100%">
+                            <rect width="400" height="300" fill="#fff1f2"/>
+                            <circle cx="200" cy="130" r="65" fill="#fda4af" opacity="0.4"/>
+                            <circle cx="160" cy="160" r="22" fill="#e11d48"/>
+                            <circle cx="240" cy="160" r="22" fill="#e11d48"/>
+                            <circle cx="200" cy="180" r="26" fill="#be123c"/>
+                            <text x="200" y="270" font-family="'Sacramento', cursive" font-size="30" fill="#831843" text-anchor="middle">Lady with Roses</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="img-switcher">
+                    <button class="switcher-btn" onclick="switchImage(2, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="card2-label">🖼️ Asset Photo</span>
+                    <button class="switcher-btn" onclick="switchImage(2, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <span class="product-tag">Portrait Art</span>
+                <h3 class="product-title">Lady with Roses</h3>
+                <p class="product-description">Expressive portraiture piece surrounded by vibrant acrylic rose florals and fine detail brushwork.</p>
+                
+                <div class="size-selector-group">
+                    <label class="size-label" for="size-2">Select Edition / Size:</label>
+                    <select id="size-2" class="size-select" onchange="updateCardPrice(2, 'Lady with Roses')">
+                        <option value="18" data-size="Small Print">Small Print — $18.00</option>
+                        <option value="24" data-size="Larger Print">Larger Print — $24.00</option>
+                        <option value="41" data-size="Real-Sized Print">Real-Sized Print — $41.00</option>
+                        <option value="12" data-size="Vinyl Sticker Set (3 pcs)">Vinyl Sticker Set (3 pcs) — $12.00</option>
+                        <option value="280" data-size="Original Canvas">Original Painting (One-of-a-kind) — $280.00</option>
+                    </select>
+                </div>
+
+                <div class="card-footer">
+                    <div class="price-row">
+                        <span class="product-price" id="price-2">$18.00</span>
+                    </div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-2">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="ecastyle@keemail.me">
+                        <input type="hidden" name="item_name" id="item-name-2" value="Lady with Roses (Small Print)">
+                        <input type="hidden" name="amount" id="item-amount-2" value="18.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <button type="submit" class="btn-paypal-direct">
+                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 12. Ocean Shore at Dusk -->
+            <div class="product-card" data-category="landscape">
+                <div class="product-img-holder">
+                    <div class="view-layer active" id="card6-view1">
+                        <img src="assets/images/project/project6.jpg" alt="Ocean Shore at Dusk Asset">
+                    </div>
+                    <div class="view-layer" id="card6-view2">
+                        <svg viewBox="0 0 400 300" width="100%" height="100%">
+                            <linearGradient id="duskGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#fbcfe8" />
+                                <stop offset="50%" stop-color="#f472b6" />
+                                <stop offset="100%" stop-color="#831843" />
+                            </linearGradient>
+                            <rect width="400" height="300" fill="url(#duskGrad2)"/>
+                            <path d="M0 200 C 100 180, 250 220, 400 190 L 400 300 L 0 300 Z" fill="#3b233a" opacity="0.6"/>
+                            <text x="200" y="275" font-family="'Sacramento', cursive" font-size="30" fill="#ffffff" text-anchor="middle">Ocean Shore at Dusk</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="img-switcher">
+                    <button class="switcher-btn" onclick="switchImage(6, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="card6-label">🖼️ Asset Photo</span>
+                    <button class="switcher-btn" onclick="switchImage(6, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <span class="product-tag">Seascape Painting</span>
+                <h3 class="product-title">Ocean Shore at Dusk</h3>
+                <p class="product-description">Atmospheric seascape painting capturing twilight gradient reflections on gentle coastal waters.</p>
+                
+                <div class="size-selector-group">
+                    <label class="size-label" for="size-6">Select Edition / Size:</label>
+                    <select id="size-6" class="size-select" onchange="updateCardPrice(6, 'Ocean Shore at Dusk')">
+                        <option value="18" data-size="Small Print">Small Print — $18.00</option>
+                        <option value="24" data-size="Larger Print">Larger Print — $24.00</option>
+                        <option value="41" data-size="Real-Sized Print">Real-Sized Print — $41.00</option>
+                        <option value="12" data-size="Vinyl Sticker Set (3 pcs)">Vinyl Sticker Set (3 pcs) — $12.00</option>
+                        <option value="350" data-size="Original Canvas">Original Painting (One-of-a-kind) — $350.00</option>
+                    </select>
+                </div>
+
+                <div class="card-footer">
+                    <div class="price-row">
+                        <span class="product-price" id="price-6">$18.00</span>
+                    </div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-6">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="ecastyle@keemail.me">
+                        <input type="hidden" name="item_name" id="item-name-6" value="Ocean Shore at Dusk (Small Print)">
+                        <input type="hidden" name="amount" id="item-amount-6" value="18.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <button type="submit" class="btn-paypal-direct">
+                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 13. Golden Fish -->
+            <div class="product-card" data-category="abstract">
+                <div class="product-img-holder">
+                    <div class="view-layer active" id="card3-view1">
+                        <img src="assets/images/project/project3.jpg" alt="Golden Fish Asset">
+                    </div>
+                    <div class="view-layer" id="card3-view2">
+                        <svg viewBox="0 0 400 300" width="100%" height="100%">
+                            <rect width="400" height="300" fill="#3b233a"/>
+                            <path d="M110 150 Q 200 80 290 150 Q 200 220 110 150 Z" fill="#fbbf24"/>
+                            <path d="M280 150 L 330 110 L 320 150 L 330 190 Z" fill="#f59e0b"/>
+                            <circle cx="150" cy="135" r="6" fill="#3b233a"/>
+                            <text x="200" y="270" font-family="'Sacramento', cursive" font-size="30" fill="#fbbf24" text-anchor="middle">Golden Fish</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="img-switcher">
+                    <button class="switcher-btn" onclick="switchImage(3, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="card3-label">🖼️ Asset Photo</span>
+                    <button class="switcher-btn" onclick="switchImage(3, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <span class="product-tag">Abstract / Gold Leaf</span>
+                <h3 class="product-title">Golden Fish</h3>
+                <p class="product-description">Fluid motion original canvas artwork using gold leaf embellishments on deep berry tones.</p>
+                
+                <div class="size-selector-group">
+                    <label class="size-label" for="size-3">Select Edition / Size:</label>
+                    <select id="size-3" class="size-select" onchange="updateCardPrice(3, 'Golden Fish')">
+                        <option value="18" data-size="Small Print">Small Print — $18.00</option>
+                        <option value="24" data-size="Larger Print">Larger Print — $24.00</option>
+                        <option value="41" data-size="Real-Sized Print">Real-Sized Print — $41.00</option>
+                        <option value="12" data-size="Vinyl Sticker Set (3 pcs)">Vinyl Sticker Set (3 pcs) — $12.00</option>
+                        <option value="300" data-size="Original Canvas">Original Painting (One-of-a-kind) — $300.00</option>
+                    </select>
+                </div>
+
+                <div class="card-footer">
+                    <div class="price-row">
+                        <span class="product-price" id="price-3">$18.00</span>
+                    </div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-3">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="ecastyle@keemail.me">
+                        <input type="hidden" name="item_name" id="item-name-3" value="Golden Fish (Small Print)">
+                        <input type="hidden" name="amount" id="item-amount-3" value="18.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <button type="submit" class="btn-paypal-direct">
+                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 14. The Flower Lady -->
+            <div class="product-card" data-category="portrait">
+                <div class="product-img-holder">
+                    <div class="view-layer active" id="card4-view1">
+                        <img src="assets/images/project/project4.jpg" alt="The Flower Lady Asset">
+                    </div>
+                    <div class="view-layer" id="card4-view2">
+                        <svg viewBox="0 0 400 300" width="100%" height="100%">
+                            <rect width="400" height="300" fill="#fdf4ff"/>
+                            <circle cx="200" cy="120" r="55" fill="#c084fc" opacity="0.3"/>
+                            <path d="M150 160 Q 200 210 250 160" fill="none" stroke="#9333ea" stroke-width="4"/>
+                            <circle cx="200" cy="90" r="18" fill="#e9d5ff"/>
+                            <text x="200" y="270" font-family="'Sacramento', cursive" font-size="30" fill="#831843" text-anchor="middle">The Flower Lady</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="img-switcher">
+                    <button class="switcher-btn" onclick="switchImage(4, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="card4-label">🖼️ Asset Photo</span>
+                    <button class="switcher-btn" onclick="switchImage(4, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <span class="product-tag">Portrait Painting</span>
+                <h3 class="product-title">The Flower Lady</h3>
+                <p class="product-description">Soft botanical portrait blending gentle pastel flower motifs with striking feminine silhouettes.</p>
+                
+                <div class="size-selector-group">
+                    <label class="size-label" for="size-4">Select Edition / Size:</label>
+                    <select id="size-4" class="size-select" onchange="updateCardPrice(4, 'The Flower Lady')">
+                        <option value="18" data-size="Small Print">Small Print — $18.00</option>
+                        <option value="24" data-size="Larger Print">Larger Print — $24.00</option>
+                        <option value="41" data-size="Real-Sized Print">Real-Sized Print — $41.00</option>
+                        <option value="12" data-size="Vinyl Sticker Set (3 pcs)">Vinyl Sticker Set (3 pcs) — $12.00</option>
+                        <option value="270" data-size="Original Canvas">Original Painting (One-of-a-kind) — $270.00</option>
+                    </select>
+                </div>
+
+                <div class="card-footer">
+                    <div class="price-row">
+                        <span class="product-price" id="price-4">$18.00</span>
+                    </div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-4">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="ecastyle@keemail.me">
+                        <input type="hidden" name="item_name" id="item-name-4" value="The Flower Lady (Small Print)">
+                        <input type="hidden" name="amount" id="item-amount-4" value="18.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <button type="submit" class="btn-paypal-direct">
+                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 15. Velvet Afternoon -->
+            <div class="product-card" data-category="landscape">
+                <div class="product-img-holder">
+                    <div class="view-layer active" id="card9-view1">
+                        <img src="assets/images/project/project9.png" alt="Velvet Afternoon Asset">
+                    </div>
+                    <div class="view-layer" id="card9-view2">
+                        <svg viewBox="0 0 400 300" width="100%" height="100%">
+                            <rect width="400" height="300" fill="#fdf4ff"/>
+                            <circle cx="200" cy="120" r="50" fill="#fbcfe8" opacity="0.5"/>
+                            <text x="200" y="270" font-family="'Sacramento', cursive" font-size="30" fill="#831843" text-anchor="middle">Velvet Afternoon</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="img-switcher">
+                    <button class="switcher-btn" onclick="switchImage(9, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="card9-label">🖼️ Asset Photo</span>
+                    <button class="switcher-btn" onclick="switchImage(9, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <span class="product-tag">Landscape Canvas</span>
+                <h3 class="product-title">Velvet Afternoon</h3>
+                <p class="product-description">Warm rustic interior study featuring lazy afternoon sunbeams filtering through sheer curtains.</p>
+                
+                <div class="size-selector-group">
+                    <label class="size-label" for="size-9">Select Edition / Size:</label>
+                    <select id="size-9" class="size-select" onchange="updateCardPrice(9, 'Velvet Afternoon')">
+                        <option value="18" data-size="Small Print">Small Print — $18.00</option>
+                        <option value="24" data-size="Larger Print">Larger Print — $24.00</option>
+                        <option value="41" data-size="Real-Sized Print">Real-Sized Print — $41.00</option>
+                        <option value="12" data-size="Vinyl Sticker Set (3 pcs)">Vinyl Sticker Set (3 pcs) — $12.00</option>
+                        <option value="320" data-size="Original Canvas">Original Painting (One-of-a-kind) — $320.00</option>
+                    </select>
+                </div>
+
+                <div class="card-footer">
+                    <div class="price-row">
+                        <span class="product-price" id="price-9">$18.00</span>
+                    </div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-9">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="ecastyle@keemail.me">
+                        <input type="hidden" name="item_name" id="item-name-9" value="Velvet Afternoon (Small Print)">
+                        <input type="hidden" name="amount" id="item-amount-9" value="18.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <button type="submit" class="btn-paypal-direct">
+                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 16. Sakura Reverie -->
+            <div class="product-card" data-category="landscape">
+                <div class="product-img-holder">
+                    <div class="view-layer active" id="card7-view1">
+                        <img src="assets/images/project/project7.jpg" alt="Sakura Reverie Asset">
+                    </div>
+                    <div class="view-layer" id="card7-view2">
+                        <svg viewBox="0 0 400 300" width="100%" height="100%">
+                            <rect width="400" height="300" fill="#fff1f2"/>
+                            <circle cx="200" cy="110" r="50" fill="#f43f5e" opacity="0.3"/>
+                            <path d="M50 220 Q 200 150 350 220 L 400 300 L 0 300 Z" fill="#fb7185" opacity="0.4"/>
+                            <text x="200" y="270" font-family="'Sacramento', cursive" font-size="30" fill="#831843" text-anchor="middle">Sakura Reverie</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="img-switcher">
+                    <button class="switcher-btn" onclick="switchImage(7, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="card7-label">🖼️ Asset Photo</span>
+                    <button class="switcher-btn" onclick="switchImage(7, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <span class="product-tag">Landscape Canvas</span>
+                <h3 class="product-title">Sakura Reverie</h3>
+                <p class="product-description">Dreamy cherry blossom landscape filled with romantic spring hues and whimsical touches.</p>
+                
+                <div class="size-selector-group">
+                    <label class="size-label" for="size-7">Select Edition / Size:</label>
+                    <select id="size-7" class="size-select" onchange="updateCardPrice(7, 'Sakura Reverie')">
+                        <option value="18" data-size="Small Print">Small Print — $18.00</option>
+                        <option value="24" data-size="Larger Print">Larger Print — $24.00</option>
+                        <option value="41" data-size="Real-Sized Print">Real-Sized Print — $41.00</option>
+                        <option value="12" data-size="Vinyl Sticker Set (3 pcs)">Vinyl Sticker Set (3 pcs) — $12.00</option>
+                        <option value="350" data-size="Original Canvas">Original Painting (One-of-a-kind) — $350.00</option>
+                    </select>
+                </div>
+
+                <div class="card-footer">
+                    <div class="price-row">
+                        <span class="product-price" id="price-7">$18.00</span>
+                    </div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-7">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="ecastyle@keemail.me">
+                        <input type="hidden" name="item_name" id="item-name-7" value="Sakura Reverie (Small Print)">
+                        <input type="hidden" name="amount" id="item-amount-7" value="18.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <button type="submit" class="btn-paypal-direct">
+                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 17. Anna the Thoughtful -->
+            <div class="product-card" data-category="portrait">
+                <div class="product-img-holder">
+                    <div class="view-layer active" id="card5-view1">
+                        <img src="assets/images/project/project5.jpg" alt="Anna the Thoughtful Asset">
+                    </div>
+                    <div class="view-layer" id="card5-view2">
+                        <svg viewBox="0 0 400 300" width="100%" height="100%">
+                            <rect width="400" height="300" fill="#fdf2f8"/>
+                            <circle cx="200" cy="140" r="70" fill="#fbcfe8"/>
+                            <path d="M170 120 C 180 80, 220 80, 230 120" stroke="#ec4899" stroke-width="4" fill="none"/>
+                            <text x="200" y="270" font-family="'Sacramento', cursive" font-size="30" fill="#831843" text-anchor="middle">Anna the Thoughtful</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="img-switcher">
+                    <button class="switcher-btn" onclick="switchImage(5, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="card5-label">🖼️ Asset Photo</span>
+                    <button class="switcher-btn" onclick="switchImage(5, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <span class="product-tag">Fine Portrait</span>
+                <h3 class="product-title">Anna the Thoughtful</h3>
+                <p class="product-description">Contemplative fine portrait painting in subtle pink and neutral tone arrangements.</p>
+                
+                <div class="size-selector-group">
+                    <label class="size-label" for="size-5">Select Edition / Size:</label>
+                    <select id="size-5" class="size-select" onchange="updateCardPrice(5, 'Anna the Thoughtful')">
+                        <option value="18" data-size="Small Print">Small Print — $18.00</option>
+                        <option value="24" data-size="Larger Print">Larger Print — $24.00</option>
+                        <option value="41" data-size="Real-Sized Print">Real-Sized Print — $41.00</option>
+                        <option value="12" data-size="Vinyl Sticker Set (3 pcs)">Vinyl Sticker Set (3 pcs) — $12.00</option>
+                        <option value="250" data-size="Original Canvas">Original Painting (One-of-a-kind) — $250.00</option>
+                    </select>
+                </div>
+
+                <div class="card-footer">
+                    <div class="price-row">
+                        <span class="product-price" id="price-5">$18.00</span>
+                    </div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-5">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="ecastyle@keemail.me">
+                        <input type="hidden" name="item_name" id="item-name-5" value="Anna the Thoughtful (Small Print)">
+                        <input type="hidden" name="amount" id="item-amount-5" value="18.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <button type="submit" class="btn-paypal-direct">
+                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 18. Starlit Solitude -->
+            <div class="product-card" data-category="abstract">
+                <div class="product-img-holder">
+                    <div class="view-layer active" id="card8-view1">
+                        <img src="assets/images/project/project8.jpg" alt="Starlit Solitude Asset">
+                    </div>
+                    <div class="view-layer" id="card8-view2">
+                        <svg viewBox="0 0 400 300" width="100%" height="100%">
+                            <rect width="400" height="300" fill="#1e1b4b"/>
+                            <circle cx="200" cy="110" r="40" fill="#c7d2fe" opacity="0.6"/>
+                            <text x="200" y="270" font-family="'Sacramento', cursive" font-size="30" fill="#e0e7ff" text-anchor="middle">Starlit Solitude</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="img-switcher">
+                    <button class="switcher-btn" onclick="switchImage(8, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="card8-label">🖼️ Asset Photo</span>
+                    <button class="switcher-btn" onclick="switchImage(8, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <span class="product-tag">Abstract / Cosmic</span>
+                <h3 class="product-title">Starlit Solitude</h3>
+                <p class="product-description">Atmospheric night sky study reflecting peaceful isolation and sparkling constellations.</p>
+                
+                <div class="size-selector-group">
+                    <label class="size-label" for="size-8">Select Edition / Size:</label>
+                    <select id="size-8" class="size-select" onchange="updateCardPrice(8, 'Starlit Solitude')">
+                        <option value="18" data-size="Small Print">Small Print — $18.00</option>
+                        <option value="24" data-size="Larger Print">Larger Print — $24.00</option>
+                        <option value="41" data-size="Real-Sized Print">Real-Sized Print — $41.00</option>
+                        <option value="12" data-size="Vinyl Sticker Set (3 pcs)">Vinyl Sticker Set (3 pcs) — $12.00</option>
+                        <option value="295" data-size="Original Canvas">Original Painting (One-of-a-kind) — $295.00</option>
+                    </select>
+                </div>
+
+                <div class="card-footer">
+                    <div class="price-row">
+                        <span class="product-price" id="price-8">$18.00</span>
+                    </div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-8">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="ecastyle@keemail.me">
+                        <input type="hidden" name="item_name" id="item-name-8" value="Starlit Solitude (Small Print)">
+                        <input type="hidden" name="amount" id="item-amount-8" value="18.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <button type="submit" class="btn-paypal-direct">
+                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 19. Meadow Serenade -->
+            <div class="product-card" data-category="landscape">
+                <div class="product-img-holder">
+                    <div class="view-layer active" id="card10-view1">
+                        <img src="assets/images/project/project10.png" alt="Meadow Serenade Asset">
+                    </div>
+                    <div class="view-layer" id="card10-view2">
+                        <svg viewBox="0 0 400 300" width="100%" height="100%">
+                            <rect width="400" height="300" fill="#f0fdf4"/>
+                            <path d="M0 240 Q 200 180 400 240 L 400 300 L 0 300 Z" fill="#bbf7d0"/>
+                            <text x="200" y="270" font-family="'Sacramento', cursive" font-size="30" fill="#166534" text-anchor="middle">Meadow Serenade</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="img-switcher">
+                    <button class="switcher-btn" onclick="switchImage(10, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="card10-label">🖼️ Asset Photo</span>
+                    <button class="switcher-btn" onclick="switchImage(10, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <span class="product-tag">Landscape Canvas</span>
+                <h3 class="product-title">Meadow Serenade</h3>
+                <p class="product-description">Wildflower field composition bursting with pastoral charm and organic textures.</p>
+                
+                <div class="size-selector-group">
+                    <label class="size-label" for="size-10">Select Edition / Size:</label>
+                    <select id="size-10" class="size-select" onchange="updateCardPrice(10, 'Meadow Serenade')">
+                        <option value="18" data-size="Small Print">Small Print — $18.00</option>
+                        <option value="24" data-size="Larger Print">Larger Print — $24.00</option>
+                        <option value="41" data-size="Real-Sized Print">Real-Sized Print — $41.00</option>
+                        <option value="12" data-size="Vinyl Sticker Set (3 pcs)">Vinyl Sticker Set (3 pcs) — $12.00</option>
+                        <option value="265" data-size="Original Canvas">Original Painting (One-of-a-kind) — $265.00</option>
+                    </select>
+                </div>
+
+                <div class="card-footer">
+                    <div class="price-row">
+                        <span class="product-price" id="price-10">$18.00</span>
+                    </div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-10">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="ecastyle@keemail.me">
+                        <input type="hidden" name="item_name" id="item-name-10" value="Meadow Serenade (Small Print)">
+                        <input type="hidden" name="amount" id="item-amount-10" value="18.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <button type="submit" class="btn-paypal-direct">
+                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 20. Porcelain Muse -->
+            <div class="product-card" data-category="portrait">
+                <div class="product-img-holder">
+                    <div class="view-layer active" id="card11-view1">
+                        <img src="assets/images/project/project11.png" alt="Porcelain Muse Asset">
+                    </div>
+                    <div class="view-layer" id="card11-view2">
+                        <svg viewBox="0 0 400 300" width="100%" height="100%">
+                            <rect width="400" height="300" fill="#fffdfa"/>
+                            <circle cx="200" cy="130" r="55" fill="#fbcfe8" opacity="0.4"/>
+                            <text x="200" y="270" font-family="'Sacramento', cursive" font-size="30" fill="#831843" text-anchor="middle">Porcelain Muse</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="img-switcher">
+                    <button class="switcher-btn" onclick="switchImage(11, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="card11-label">🖼️ Asset Photo</span>
+                    <button class="switcher-btn" onclick="switchImage(11, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <span class="product-tag">Fine Portrait</span>
+                <h3 class="product-title">Porcelain Muse</h3>
+                <p class="product-description">Delicate study of classical form and expression rendered in soft monochrome and rose glazes.</p>
+                
+                <div class="size-selector-group">
+                    <label class="size-label" for="size-11">Select Edition / Size:</label>
+                    <select id="size-11" class="size-select" onchange="updateCardPrice(11, 'Porcelain Muse')">
+                        <option value="18" data-size="Small Print">Small Print — $18.00</option>
+                        <option value="24" data-size="Larger Print">Larger Print — $24.00</option>
+                        <option value="41" data-size="Real-Sized Print">Real-Sized Print — $41.00</option>
+                        <option value="12" data-size="Vinyl Sticker Set (3 pcs)">Vinyl Sticker Set (3 pcs) — $12.00</option>
+                        <option value="340" data-size="Original Canvas">Original Painting (One-of-a-kind) — $340.00</option>
+                    </select>
+                </div>
+
+                <div class="card-footer">
+                    <div class="price-row">
+                        <span class="product-price" id="price-11">$18.00</span>
+                    </div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-11">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="ecastyle@keemail.me">
+                        <input type="hidden" name="item_name" id="item-name-11" value="Porcelain Muse (Small Print)">
+                        <input type="hidden" name="amount" id="item-amount-11" value="18.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <button type="submit" class="btn-paypal-direct">
+                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 21. Amber Reverie -->
+            <div class="product-card" data-category="abstract">
+                <div class="product-img-holder">
+                    <div class="view-layer active" id="card12-view1">
+                        <img src="assets/images/project/project12.png" alt="Amber Reverie Asset">
+                    </div>
+                    <div class="view-layer" id="card12-view2">
+                        <svg viewBox="0 0 400 300" width="100%" height="100%">
+                            <rect width="400" height="300" fill="#fffbeb"/>
+                            <circle cx="200" cy="130" r="50" fill="#fde047" opacity="0.5"/>
+                            <text x="200" y="270" font-family="'Sacramento', cursive" font-size="30" fill="#854d0e" text-anchor="middle">Amber Reverie</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="img-switcher">
+                    <button class="switcher-btn" onclick="switchImage(12, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="card12-label">🖼️ Asset Photo</span>
+                    <button class="switcher-btn" onclick="switchImage(12, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <span class="product-tag">Abstract / Warm</span>
+                <h3 class="product-title">Amber Reverie</h3>
+                <p class="product-description">Textured abstract exploration featuring radiant golden tones and sepia undertones.</p>
+                
+                <div class="size-selector-group">
+                    <label class="size-label" for="size-12">Select Edition / Size:</label>
+                    <select id="size-12" class="size-select" onchange="updateCardPrice(12, 'Amber Reverie')">
+                        <option value="18" data-size="Small Print">Small Print — $18.00</option>
+                        <option value="24" data-size="Larger Print">Larger Print — $24.00</option>
+                        <option value="41" data-size="Real-Sized Print">Real-Sized Print — $41.00</option>
+                        <option value="12" data-size="Vinyl Sticker Set (3 pcs)">Vinyl Sticker Set (3 pcs) — $12.00</option>
+                        <option value="285" data-size="Original Canvas">Original Painting (One-of-a-kind) — $285.00</option>
+                    </select>
+                </div>
+
+                <div class="card-footer">
+                    <div class="price-row">
+                        <span class="product-price" id="price-12">$18.00</span>
+                    </div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-12">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="ecastyle@keemail.me">
+                        <input type="hidden" name="item_name" id="item-name-12" value="Amber Reverie (Small Print)">
+                        <input type="hidden" name="amount" id="item-amount-12" value="18.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <button type="submit" class="btn-paypal-direct">
+                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 22. Moonlit Bramble -->
+            <div class="product-card" data-category="landscape">
+                <div class="product-img-holder">
+                    <div class="view-layer active" id="card13-view1">
+                        <img src="assets/images/project/project13.png" alt="Moonlit Bramble Asset">
+                    </div>
+                    <div class="view-layer" id="card13-view2">
+                        <svg viewBox="0 0 400 300" width="100%" height="100%">
+                            <rect width="400" height="300" fill="#0f172a"/>
+                            <circle cx="200" cy="110" r="45" fill="#38bdf8" opacity="0.3"/>
+                            <text x="200" y="270" font-family="'Sacramento', cursive" font-size="30" fill="#e2e8f0" text-anchor="middle">Moonlit Bramble</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="img-switcher">
+                    <button class="switcher-btn" onclick="switchImage(13, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="card13-label">🖼️ Asset Photo</span>
+                    <button class="switcher-btn" onclick="switchImage(13, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <span class="product-tag">Landscape Canvas</span>
+                <h3 class="product-title">Moonlit Bramble</h3>
+                <p class="product-description">Enchanting nocturnal landscape depicting twisting woodland branches bathed in moonlight.</p>
+                
+                <div class="size-selector-group">
+                    <label class="size-label" for="size-13">Select Edition / Size:</label>
+                    <select id="size-13" class="size-select" onchange="updateCardPrice(13, 'Moonlit Bramble')">
+                        <option value="18" data-size="Small Print">Small Print — $18.00</option>
+                        <option value="24" data-size="Larger Print">Larger Print — $24.00</option>
+                        <option value="41" data-size="Real-Sized Print">Real-Sized Print — $41.00</option>
+                        <option value="12" data-size="Vinyl Sticker Set (3 pcs)">Vinyl Sticker Set (3 pcs) — $12.00</option>
+                        <option value="315" data-size="Original Canvas">Original Painting (One-of-a-kind) — $315.00</option>
+                    </select>
+                </div>
+
+                <div class="card-footer">
+                    <div class="price-row">
+                        <span class="product-price" id="price-13">$18.00</span>
+                    </div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-13">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="ecastyle@keemail.me">
+                        <input type="hidden" name="item_name" id="item-name-13" value="Moonlit Bramble (Small Print)">
+                        <input type="hidden" name="amount" id="item-amount-13" value="18.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <button type="submit" class="btn-paypal-direct">
+                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 23. Lavender Haiku -->
+            <div class="product-card" data-category="abstract">
+                <div class="product-img-holder">
+                    <div class="view-layer active" id="card14-view1">
+                        <img src="assets/images/project/project14.png" alt="Lavender Haiku Asset">
+                    </div>
+                    <div class="view-layer" id="card14-view2">
+                        <svg viewBox="0 0 400 300" width="100%" height="100%">
+                            <rect width="400" height="300" fill="#faf5ff"/>
+                            <circle cx="200" cy="130" r="50" fill="#d8b4fe" opacity="0.4"/>
+                            <text x="200" y="270" font-family="'Sacramento', cursive" font-size="30" fill="#6b21a8" text-anchor="middle">Lavender Haiku</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="img-switcher">
+                    <button class="switcher-btn" onclick="switchImage(14, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="card14-label">🖼️ Asset Photo</span>
+                    <button class="switcher-btn" onclick="switchImage(14, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <span class="product-tag">Abstract Botanical</span>
+                <h3 class="product-title">Lavender Haiku</h3>
+                <p class="product-description">Minimalist floral abstraction celebrating the calming purity of lavender fields.</p>
+                
+                <div class="size-selector-group">
+                    <label class="size-label" for="size-14">Select Edition / Size:</label>
+                    <select id="size-14" class="size-select" onchange="updateCardPrice(14, 'Lavender Haiku')">
+                        <option value="18" data-size="Small Print">Small Print — $18.00</option>
+                        <option value="24" data-size="Larger Print">Larger Print — $24.00</option>
+                        <option value="41" data-size="Real-Sized Print">Real-Sized Print — $41.00</option>
+                        <option value="12" data-size="Vinyl Sticker Set (3 pcs)">Vinyl Sticker Set (3 pcs) — $12.00</option>
+                        <option value="275" data-size="Original Canvas">Original Painting (One-of-a-kind) — $275.00</option>
+                    </select>
+                </div>
+
+                <div class="card-footer">
+                    <div class="price-row">
+                        <span class="product-price" id="price-14">$18.00</span>
+                    </div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-14">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="ecastyle@keemail.me">
+                        <input type="hidden" name="item_name" id="item-name-14" value="Lavender Haiku (Small Print)">
+                        <input type="hidden" name="amount" id="item-amount-14" value="18.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <button type="submit" class="btn-paypal-direct">
+                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 24. Ethereal Swan -->
+            <div class="product-card" data-category="portrait">
+                <div class="product-img-holder">
+                    <div class="view-layer active" id="card15-view1">
+                        <img src="assets/images/project/project15.png" alt="Ethereal Swan Asset">
+                    </div>
+                    <div class="view-layer" id="card15-view2">
+                        <svg viewBox="0 0 400 300" width="100%" height="100%">
+                            <rect width="400" height="300" fill="#f8fafc"/>
+                            <circle cx="200" cy="130" r="55" fill="#cbd5e1" opacity="0.5"/>
+                            <text x="200" y="270" font-family="'Sacramento', cursive" font-size="30" fill="#334155" text-anchor="middle">Ethereal Swan</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="img-switcher">
+                    <button class="switcher-btn" onclick="switchImage(15, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="card15-label">🖼️ Asset Photo</span>
+                    <button class="switcher-btn" onclick="switchImage(15, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <span class="product-tag">Fine Portrait</span>
+                <h3 class="product-title">Ethereal Swan</h3>
+                <p class="product-description">Graceful expression piece highlighting timeless elegance, poise, and serene beauty.</p>
+                
+                <div class="size-selector-group">
+                    <label class="size-label" for="size-15">Select Edition / Size:</label>
+                    <select id="size-15" class="size-select" onchange="updateCardPrice(15, 'Ethereal Swan')">
+                        <option value="18" data-size="Small Print">Small Print — $18.00</option>
+                        <option value="24" data-size="Larger Print">Larger Print — $24.00</option>
+                        <option value="41" data-size="Real-Sized Print">Real-Sized Print — $41.00</option>
+                        <option value="12" data-size="Vinyl Sticker Set (3 pcs)">Vinyl Sticker Set (3 pcs) — $12.00</option>
+                        <option value="360" data-size="Original Canvas">Original Painting (One-of-a-kind) — $360.00</option>
+                    </select>
+                </div>
+
+                <div class="card-footer">
+                    <div class="price-row">
+                        <span class="product-price" id="price-15">$18.00</span>
+                    </div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-15">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="ecastyle@keemail.me">
+                        <input type="hidden" name="item_name" id="item-name-15" value="Ethereal Swan (Small Print)">
+                        <input type="hidden" name="amount" id="item-amount-15" value="18.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <button type="submit" class="btn-paypal-direct">
+                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. COMMISSION CALLOUT BANNER -->
+    <section class="commission-banner">
+        <div class="commission-container">
+            <h2>Want to order commissioned art instead? 🎨</h2>
+            <p>If you have a special painting in mind—whether it is a portrait of a loved one, a meaningful location, or a custom floral vision—I can help bring your idea to life.</p>
+            <a href="contact.html" class="btn-commission">Start Your Request ✨</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>EcaStyle Studio &bull; Fine Art & Sweet Cottagecore Goods</strong></p>
+        <p>&copy; 2026 EcaStyle. All Rights Reserved.</p>
+        <p>Maryland, USA &bull; Phone: +301 288 6622 &bull; Email: <a href="mailto:ecastyle@keemail.me">ecastyle@keemail.me</a></p>
+    </footer>
+
+    <!-- JavaScript interactions -->
+    <script>
+        const cardStates = { 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 1, 8: 1, 9: 1, 10: 1, 11: 1, 12: 1, 13: 1, 14: 1, 15: 1, 16: 1, 17: 1, 18: 1, 19: 1, 20: 1, 21: 1, 22: 1, 23: 1, 24: 1 };
+
+        function switchImage(cardId, direction) {
+            cardStates[cardId] += direction;
+            if (cardStates[cardId] > 2) cardStates[cardId] = 1;
+            if (cardStates[cardId] < 1) cardStates[cardId] = 2;
+
+            const view1 = document.getElementById(`card${cardId}-view1`);
+            const view2 = document.getElementById(`card${cardId}-view2`);
+            const label = document.getElementById(`card${cardId}-label`);
+
+            if (cardStates[cardId] === 1) {
+                view1.classList.add('active');
+                view2.classList.remove('active');
+                label.innerText = "🖼️ Asset Photo";
+            } else {
+                view1.classList.remove('active');
+                view2.classList.add('active');
+                label.innerText = "🎨 Original Illustration";
+            }
+        }
+
+        function updateCardPrice(cardId, baseTitle) {
+            const selectElem = document.getElementById(`size-${cardId}`);
+            const selectedOption = selectElem.options[selectElem.selectedIndex];
+            
+            const price = selectedOption.value;
+            const sizeLabel = selectedOption.getAttribute('data-size');
+            
+            document.getElementById(`price-${cardId}`).innerText = `$${parseFloat(price).toFixed(2)}`;
+            
+            document.getElementById(`item-name-${cardId}`).value = `${baseTitle} (${sizeLabel})`;
+            document.getElementById(`item-amount-${cardId}`).value = `${price}.00`;
+        }
+
+        // Category Filter
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filter = button.getAttribute('data-filter');
+                document.querySelectorAll('.product-card').forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

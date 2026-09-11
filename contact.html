@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>EcaStyle | Contact Us</title>
+
+    <!-- Google Fonts for Cute Cottagecore Aesthetics -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Sacramento&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
+    <style>
+        /* Sweet Pink & Cottagecore Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #4a3b52;
+            background-color: #fffdfa;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: #3b233a;
+        }
+
+        .handwritten {
+            font-family: 'Sacramento', cursive;
+            color: #ec4899;
+            font-size: 1.4em;
+        }
+
+        /* Top Announcement Banner */
+        .top-banner {
+            background: linear-gradient(90deg, #fbcfe8 0%, #f472b6 50%, #fbcfe8 100%);
+            font-size: 12px;
+            font-weight: 500;
+            padding: 9px 20px;
+            color: #831843;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #fce7f3;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .navbar-brand h3 {
+            font-family: 'Playfair Display', serif;
+            color: #831843;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 26px;
+        }
+
+        .navbar-brand span {
+            color: #f472b6;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #704d6d;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            font-size: 13px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #ec4899;
+        }
+
+        .cart-trigger {
+            cursor: pointer;
+            background: #fdf2f8;
+            border: 1px solid #fbcfe8;
+            padding: 6px 16px;
+            border-radius: 20px;
+            color: #db2777;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .cart-trigger:hover {
+            background: #fce7f3;
+            transform: scale(1.03);
+        }
+
+        .cart-badge {
+            background: #ec4899;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 22px;
+            color: #831843;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: radial-gradient(circle at 10% 20%, #fdf2f8 0%, #fce7f3 40%, #fbcfe8 90%);
+            padding: 70px 24px;
+            color: #831843;
+            text-align: center;
+            border-bottom: 1px solid #fce7f3;
+        }
+
+        .page-header h1 {
+            color: #831843;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .breadcrumbs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            font-size: 13px;
+            color: #704d6d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .breadcrumbs a {
+            color: #ec4899;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .breadcrumbs a:hover {
+            color: #be185d;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 38px;
+            font-weight: 700;
+            color: #831843;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            font-size: 15px;
+            color: #866380;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .contact-card {
+            background: #ffffff;
+            border: 1px solid #fce7f3;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 8px 20px rgba(244, 114, 182, 0.06);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-icon {
+            width: 46px;
+            height: 46px;
+            background: #fdf2f8;
+            color: #ec4899;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+            border: 1px solid #fbcfe8;
+        }
+
+        .info-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #831843;
+            margin-bottom: 2px;
+        }
+
+        .info-text {
+            font-size: 14px;
+            color: #866380;
+        }
+
+        .info-text a {
+            color: #ec4899;
+            text-decoration: none;
+        }
+
+        .info-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* Form Controls */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #831843;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid #fbcfe8;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            color: #4a3b52;
+            background: #fffdfa;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #ec4899;
+            box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.15);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .btn-submit {
+            background-color: #ec4899;
+            color: #ffffff;
+            padding: 14px 32px;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            display: inline-block;
+            box-shadow: 0 10px 20px rgba(236, 72, 153, 0.2);
+        }
+
+        .btn-submit:hover {
+            background-color: #db2777;
+            transform: translateY(-2px);
+        }
+
+        /* Toast Modal System */
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #831843;
+            color: #ffffff;
+            padding: 16px 24px;
+            border-radius: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transform: translateY(150%);
+            transition: transform 0.4s ease-in-out;
+            z-index: 1000;
+        }
+
+        .toast-notification.show {
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #3b233a;
+            color: #fbcfe8;
+            padding: 60px 24px 40px 24px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .newsletter-box {
+            max-width: 500px;
+            margin: 25px auto 0 auto;
+            display: flex;
+            gap: 8px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 10px 16px;
+            border-radius: 30px;
+            border: 1px solid #704d6d;
+            background-color: #4a2c49;
+            color: #ffffff;
+            font-size: 13px;
+        }
+
+        .newsletter-btn {
+            background-color: #ec4899;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            background-color: #db2777;
+        }
+
+        /* Mobile Breakpoints */
+        @media (max-width: 868px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #ffffff;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+                border-top: 1px solid #fce7f3;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. TOP ANNOUNCEMENT BAR -->
+    <div class="top-banner">
+        🌸 Free Shipping on US Orders $100+* Does not include originals &bull; Handcrafted with Love in Maryland ✨
+    </div>
+
+    <!-- 2. BRAND NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a class="navbar-brand" href="index.html">
+                <h3>EcaStyle<span>.art</span> 🌸</h3>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuToggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#categories">Categories</a></li>
+                <li><a href="about.html">About Eca</a></li>
+                <li><a href="project.html">Shop Gallery</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li>
+                    <a href="cart.html" class="cart-trigger">
+                        <i class="fa-solid fa-heart"></i>
+                        <span>Cart</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 3. PAGE HEADER HERO -->
+    <section class="page-header">
+        <h1>Get in Touch 🌸</h1>
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a>
+            <span>//</span>
+            <span>Contact</span>
+        </div>
+    </section>
+
+    <!-- 4. MAIN CONTACT SECTION -->
+    <section class="contact-section">
+        <div class="section-header">
+            <h2 class="section-title">Contact EcaStyle Studio</h2>
+            <p class="section-subtitle">Whether you wish to inquire about custom commissioned paintings, artist consultancy, or general artwork inquiries, we are delighted to assist you.</p>
+        </div>
+
+        <div class="contact-grid">
+            
+            <!-- Contact Info Panel -->
+            <div class="contact-card">
+                <h3 style="font-size:22px; font-weight:700; color:#831843; margin-bottom:24px;">Studio Info</h3>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <div class="info-title">Location</div>
+                        <div class="info-text">Maryland, USA</div>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div>
+                        <div class="info-title">Phone</div>
+                        <div class="info-text">+561 295 4188</div>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div>
+                        <div class="info-title">Email</div>
+                        <div class="info-text"><a href="mailto:ecastyle@keemail.me">ecastyle@keemail.me</a></div>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </div>
+                    <div>
+                        <div class="info-title">Social Connection</div>
+                        <div class="info-text"><a href="https://www.facebook.com/K-E-853387841695765" target="_blank">Connect on Facebook</a></div>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <div>
+                        <div class="info-title">Instagram</div>
+                        <div class="info-text"><a href="https://www.instagram.com/ecastylish/" target="_blank">Follow on Instagram</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Message Form -->
+            <div class="contact-card">
+                <h3 style="font-size:22px; font-weight:700; color:#831843; margin-bottom:24px;">Leave Us a Message</h3>
+                
+                <form id="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Your Name</label>
+                            <input type="text" id="name" name="entry.587200457" class="form-control" placeholder="Jane Doe" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="email">Your Email</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="jane@example.com" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="subject">Inquiry Subject / Category</label>
+                        <select id="subject" name="entry.121227051" class="form-control" required>
+                            <option value="" disabled selected>Select message type...</option>
+                            <option value="Commissioned Art">Commissioned Art</option>
+                            <option value="Artist Consultancy">Artist Consultancy</option>
+                            <option value="Premium Artist Consultancy">Premium Artist Consultancy</option>
+                            <option value="General Inquiry">Something Else</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="message">Message Details</label>
+                        <textarea id="message" name="entry.1852666338" class="form-control" placeholder="Please describe your artwork ideas, canvas sizes, or questions here..." required></textarea>
+                    </div>
+
+                    <button type="submit" id="form-submit" class="btn-submit">
+                        Send Message <i class="fa-solid fa-paper-plane" style="margin-left: 6px;"></i>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. FOOTER WITH NEWSLETTER -->
+    <footer>
+        <p><strong>EcaStyle Studio &bull; Fine Art & Sweet Cottagecore Goods</strong></p>
+        <p>&copy; 2026 EcaStyle. All Rights Reserved.</p>
+        <p>Maryland, USA &bull; Phone: +301 288 6622 &bull; Email: <a href="mailto:ecastyle@keemail.me">ecastyle@keemail.me</a></p>
+
+        <div style="margin-top: 30px;">
+            <p style="color: #fbcfe8; font-weight: 500;">Subscribe to our newsletter for new releases & art updates:</p>
+            <form class="newsletter-box" id="newsletterForm" onsubmit="postToGoogleNewsletter(event)">
+                <input type="text" id="sendName" name="entry.351224918" class="newsletter-input" placeholder="Your Name" required />
+                <input type="email" id="sendEmail" name="entry.1081380521" class="newsletter-input" placeholder="Your Email" required />
+                <button type="submit" class="newsletter-btn">Subscribe ✨</button>
+            </form>
+        </div>
+    </footer>
+
+    <!-- Toast Notification system -->
+    <div class="toast-notification" id="toast">
+        <i class="fa-solid fa-heart" style="color: #fbcfe8;"></i>
+        <span id="toastMessage">Message sent successfully!</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            toastMessage.innerText = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Handle Main Contact Form Submission (Google Forms integration)
+        $(document).ready(function () {
+            $("#contact-form").submit(function (event) {
+                event.preventDefault();
+                var formData = {
+                    "entry.587200457": $("#name").val(),
+                    "email": $("#email").val(),
+                    "entry.121227051": $("#subject").val(),
+                    "entry.1852666338": $("#message").val(),
+                };
+
+                $.ajax({
+                    url: "https://docs.google.com/forms/d/e/1FAIpQLSeh1ihrB3h0e6R7xHEIdIJKQ3xpMrTVw8qNAJWoUE294E8A3g/formResponse",
+                    type: "POST",
+                    data: formData,
+                    dataType: "xml",
+                    complete: function () {
+                        showToast("Message sent successfully! Eca will get back to you soon 💖");
+                        $("#contact-form").trigger("reset");
+                    }
+                });
+            });
+        });
+
+        // Newsletter Google Forms submission
+        function postToGoogleNewsletter(event) {
+            event.preventDefault();
+            var name = $("#sendName").val();
+            var email = $("#sendEmail").val();
+
+            $.ajax({
+                url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfSzyZQMk5PpOVYD51QxccKyfkxVcA5ExuLvFieZPWzJ_0CxQ/formResponse",
+                data: {
+                    "entry.351224918": name,
+                    "entry.1081380521": email,
+                },
+                type: "POST",
+                dataType: "xml",
+                complete: function () {
+                    showToast("Subscribed to the Sweet Club! ✨");
+                    $("#newsletterForm").trigger("reset");
+                }
+            });
+        }
+
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

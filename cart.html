@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>EcaStyle | Your Shopping Bag</title>
+
+    <!-- Google Fonts for Cute Cottagecore Aesthetics -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Sacramento&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">    <style>
+    <style>
+        /* Sweet Pink & Cottagecore Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #4a3b52;
+            background-color: #fffdfa;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: #3b233a;
+        }
+
+        .handwritten {
+            font-family: 'Sacramento', cursive;
+            color: #ec4899;
+            font-size: 1.4em;
+        }
+
+        /* Top Announcement Banner */
+        .top-banner {
+            background: linear-gradient(90deg, #fbcfe8 0%, #f472b6 50%, #fbcfe8 100%);
+            font-size: 12px;
+            font-weight: 500;
+            padding: 9px 20px;
+            color: #831843;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #fce7f3;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .navbar-brand h3 {
+            font-family: 'Playfair Display', serif;
+            color: #831843;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 26px;
+        }
+
+        .navbar-brand span {
+            color: #f472b6;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #704d6d;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            font-size: 13px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #ec4899;
+        }
+
+        .cart-trigger {
+            cursor: pointer;
+            background: #fdf2f8;
+            border: 1px solid #fbcfe8;
+            padding: 6px 16px;
+            border-radius: 20px;
+            color: #db2777;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .cart-trigger:hover {
+            background: #fce7f3;
+            transform: scale(1.03);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 22px;
+            color: #831843;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: radial-gradient(circle at 10% 20%, #fdf2f8 0%, #fce7f3 40%, #fbcfe8 90%);
+            padding: 70px 24px;
+            color: #831843;
+            text-align: center;
+            border-bottom: 1px solid #fce7f3;
+        }
+
+        .page-header h1 {
+            color: #831843;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .breadcrumbs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            font-size: 13px;
+            color: #704d6d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .breadcrumbs a {
+            color: #ec4899;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .breadcrumbs a:hover {
+            color: #be185d;
+        }
+
+        /* Cart Main Layout */
+        .cart-section {
+            padding: 70px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cart-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .cart-card {
+            background: #ffffff;
+            border: 1px solid #fce7f3;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(244, 114, 182, 0.06);
+        }
+
+        .cart-card-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #831843;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #fce7f3;
+        }
+
+        /* Item Row Styling */
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px dashed #fce7f3;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            background: #fdf2f8;
+            border-radius: 12px;
+            border: 1px solid #fbcfe8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #ec4899;
+            font-size: 22px;
+        }
+
+        .cart-item-details {
+            flex-grow: 1;
+        }
+
+        .cart-item-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #831843;
+            margin-bottom: 4px;
+        }
+
+        .cart-item-subtitle {
+            font-size: 12px;
+            color: #866380;
+        }
+
+        .cart-item-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #be185d;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .qty-btn {
+            background: #fdf2f8;
+            border: 1px solid #fbcfe8;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            color: #831843;
+            transition: background 0.2s;
+        }
+
+        .qty-btn:hover {
+            background: #fce7f3;
+        }
+
+        .qty-val {
+            font-size: 14px;
+            font-weight: 600;
+            width: 24px;
+            text-align: center;
+            color: #4a3b52;
+        }
+
+        .remove-btn {
+            background: none;
+            border: none;
+            color: #ef4444;
+            font-size: 13px;
+            cursor: pointer;
+            margin-left: 15px;
+            transition: color 0.2s;
+        }
+
+        .remove-btn:hover {
+            color: #b91c1c;
+        }
+
+        /* Order Summary Box */
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: #704d6d;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            font-weight: 700;
+            color: #831843;
+            padding-top: 15px;
+            margin-top: 15px;
+            border-top: 2px dashed #fce7f3;
+        }
+
+        .btn-paypal-direct {
+            background-color: #ffc439;
+            color: #111;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: 1px solid #f2b82e;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            text-decoration: none;
+            transition: background 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn-paypal-direct:hover {
+            background-color: #f2b82e;
+        }
+
+        .empty-cart-view {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .empty-cart-view i {
+            font-size: 48px;
+            color: #f472b6;
+            margin-bottom: 15px;
+        }
+
+        .empty-cart-view h3 {
+            font-size: 22px;
+            color: #831843;
+            margin-bottom: 8px;
+        }
+
+        .empty-cart-view p {
+            color: #866380;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .btn-shop {
+            background-color: #ec4899;
+            color: #ffffff;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s;
+            box-shadow: 0 10px 20px rgba(236, 72, 153, 0.2);
+        }
+
+        .btn-shop:hover {
+            background-color: #db2777;
+        }
+
+        /* Commission Banner Callout */
+        .commission-banner {
+            background: linear-gradient(135deg, #fbcfe8 0%, #f472b6 100%);
+            color: #831843;
+            padding: 60px 24px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .commission-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .commission-banner h2 {
+            color: #831843;
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .commission-banner p {
+            color: #701a39;
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+
+        .btn-commission {
+            background-color: #831843;
+            color: #ffffff;
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-commission:hover {
+            background-color: #500724;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #3b233a;
+            color: #fbcfe8;
+            padding: 60px 24px 40px 24px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .newsletter-box {
+            max-width: 500px;
+            margin: 25px auto 0 auto;
+            display: flex;
+            gap: 8px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 10px 16px;
+            border-radius: 30px;
+            border: 1px solid #704d6d;
+            background-color: #4a2c49;
+            color: #ffffff;
+            font-size: 13px;
+        }
+
+        .newsletter-btn {
+            background-color: #ec4899;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            background-color: #db2777;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 868px) {
+            .cart-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #ffffff;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+                border-top: 1px solid #fce7f3;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. TOP ANNOUNCEMENT BAR -->
+    <div class="top-banner">
+        🌸 Free Shipping on US Orders $100+* Does not include originals &bull; Handcrafted with Love in Maryland ✨
+    </div>
+
+    <!-- 2. BRAND NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a class="navbar-brand" href="index.html">
+                <h3>EcaStyle<span>.art</span> 🌸</h3>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuToggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#categories">Categories</a></li>
+                <li><a href="members.html">Membership</a></li>
+                <li><a href="project.html">Shop Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <a href="cart.html" class="cart-trigger active">
+                        <i class="fa-solid fa-heart"></i>
+                        <span>Cart</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 3. PAGE HEADER HERO -->
+    <section class="page-header">
+        <h1>Your Shopping Bag 🌸</h1>
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a>
+            <span>//</span>
+            <a href="project.html">Gallery</a>
+            <span>//</span>
+            <span>Cart</span>
+        </div>
+    </section>
+
+    <!-- 4. MAIN CART CONTENT -->
+    <section class="cart-section">
+        <div class="cart-grid" id="cartContainer">
+            
+            <!-- Items Column -->
+            <div class="cart-card">
+                <h2 class="cart-card-title">Selected Artworks & Keepsakes</h2>
+                <div id="cartItemList">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+
+            <!-- Order Summary Column -->
+            <div class="cart-card">
+                <h2 class="cart-card-title">Order Summary</h2>
+                
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="subtotalVal">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Estimated Shipping</span>
+                    <span style="color: #ec4899; font-weight: 600;">FREE (Orders $100+)</span>
+                </div>
+                <div class="summary-row">
+                    <span>Sales Tax</span>
+                    <span id="taxVal">$0.00</span>
+                </div>
+
+                <div class="summary-total">
+                    <span>Total Amount</span>
+                    <span id="totalVal" style="color:#be185d;">$0.00</span>
+                </div>
+
+                <!-- Direct PayPal Checkout Form -->
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="paypalCartForm">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="business" value="ecastyle@keemail.me">
+                    <input type="hidden" name="item_name" id="paypalItemName" value="EcaStyle Art Order">
+                    <input type="hidden" name="amount" id="paypalAmount" value="0.00">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <button type="submit" class="btn-paypal-direct" id="checkoutBtn">
+                        <i class="fa-brands fa-paypal"></i> Checkout with PayPal
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. COMMISSION CALLOUT BANNER -->
+    <section class="commission-banner">
+        <div class="commission-container">
+            <h2>Want to order commissioned art instead? 🎨</h2>
+            <p>If you have a special painting in mind—whether it is a portrait of a loved one, a meaningful location, or a custom floral vision—I can help bring your idea to life.</p>
+            <a href="contact.html" class="btn-commission">Start Your Request ✨</a>
+        </div>
+    </section>
+
+    <!-- 6. FOOTER WITH NEWSLETTER -->
+    <footer>
+        <p><strong>EcaStyle Studio &bull; Fine Art & Sweet Cottagecore Goods</strong></p>
+        <p>&copy; 2026 EcaStyle. All Rights Reserved.</p>
+        <p>Maryland, USA &bull; Phone: +561 295 4188 &bull; Email: <a href="mailto:ecastyle@keemail.me">ecastyle@keemail.me</a></p>
+
+        <div style="margin-top: 30px;">
+            <p style="color: #fbcfe8; font-weight: 500;">Subscribe to our newsletter for new releases & art updates:</p>
+            <form class="newsletter-box" id="newsletterForm" onsubmit="postToGoogleNewsletter(event)">
+                <input type="text" id="sendName" name="entry.351224918" class="newsletter-input" placeholder="Your Name" required />
+                <input type="email" id="sendEmail" name="entry.1081380521" class="newsletter-input" placeholder="Your Email" required />
+                <button type="submit" class="newsletter-btn">Subscribe ✨</button>
+            </form>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        // Sample cart state
+        let cartItems = [
+            { id: 1, title: 'Happy Valley Original Canvas', price: 330, qty: 1 }
+        ];
+
+        function renderCart() {
+            const container = document.getElementById('cartItemList');
+
+            if (cartItems.length === 0) {
+                document.getElementById('cartContainer').innerHTML = `
+                    <div class="cart-card empty-cart-view" style="grid-column: 1 / -1;">
+                        <i class="fa-solid fa-heart"></i>
+                        <h3>Your Bag is Currently Empty</h3>
+                        <p>Discover handcrafted original artwork, prints, and stickers in our gallery.</p>
+                        <a href="project.html" class="btn-shop">Explore Gallery ✨</a>
+                    </div>
+                `;
+                return;
+            }
+
+            let subtotal = 0;
+            let html = '';
+            let titlesArray = [];
+
+            cartItems.forEach((item, index) => {
+                const itemTotal = item.price * item.qty;
+                subtotal += itemTotal;
+                titlesArray.push(`${item.title} (x${item.qty})`);
+
+                html += `
+                    <div class="cart-item">
+                        <div class="cart-item-img">
+                            <i class="fa-solid fa-palette"></i>
+                        </div>
+                        <div class="cart-item-details">
+                            <div class="cart-item-title">${item.title}</div>
+                            <div class="cart-item-subtitle">Original Piece / Fine Art Item</div>
+                            <div class="quantity-control">
+                                <button class="qty-btn" onclick="updateQty(${index}, -1)">-</button>
+                                <span class="qty-val">${item.qty}</span>
+                                <button class="qty-btn" onclick="updateQty(${index}, 1)">+</button>
+                                <button class="remove-btn" onclick="removeItem(${index})">
+                                    <i class="fa-solid fa-trash-can"></i> Remove
+                                </button>
+                            </div>
+                        </div>
+                        <div class="cart-item-price">$${itemTotal.toFixed(2)}</div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+
+            const tax = subtotal * 0.05;
+            const total = subtotal + tax;
+
+            document.getElementById('subtotalVal').innerText = `$${subtotal.toFixed(2)}`;
+            document.getElementById('taxVal').innerText = `$${tax.toFixed(2)}`;
+            document.getElementById('totalVal').innerText = `$${total.toFixed(2)}`;
+
+            // Update PayPal Form fields dynamically
+            document.getElementById('paypalItemName').value = titlesArray.join(', ');
+            document.getElementById('paypalAmount').value = total.toFixed(2);
+        }
+
+        function updateQty(index, change) {
+            cartItems[index].qty += change;
+            if (cartItems[index].qty <= 0) {
+                cartItems.splice(index, 1);
+            }
+            renderCart();
+        }
+
+        function removeItem(index) {
+            cartItems.splice(index, 1);
+            renderCart();
+        }
+
+        function postToGoogleNewsletter(event) {
+            event.preventDefault();
+            var name = $("#sendName").val();
+            var email = $("#sendEmail").val();
+
+            $.ajax({
+                url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfSzyZQMk5PpOVYD51QxccKyfkxVcA5ExuLvFieZPWzJ_0CxQ/formResponse",
+                data: {
+                    "entry.351224918": name,
+                    "entry.1081380521": email,
+                },
+                type: "POST",
+                dataType: "xml",
+                complete: function () {
+                    alert("Subscribed to the Sweet Club! ✨");
+                    $("#newsletterForm").trigger("reset");
+                }
+            });
+        }
+
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Initial Load
+        renderCart();
+    </script>
+</body>
+</html>
