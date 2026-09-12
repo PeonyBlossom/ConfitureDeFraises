@@ -125,6 +125,7 @@
             gap: 6px;
             font-size: 13px;
             transition: all 0.3s;
+            text-decoration: none;
         }
 
         .cart-trigger:hover {
@@ -405,27 +406,29 @@
             color: #be185d;
         }
 
-        .btn-paypal-direct {
+        .btn-add-cart-main {
             width: 100%;
-            background-color: #ffc439;
-            color: #111;
-            padding: 10px 12px;
+            background-color: #ec4899;
+            color: #ffffff;
+            padding: 11px 16px;
             border-radius: 20px;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 700;
             text-transform: uppercase;
-            border: 1px solid #f2b82e;
+            letter-spacing: 1px;
+            border: none;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
-            text-decoration: none;
-            transition: background 0.3s;
+            gap: 8px;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 6px 15px rgba(236, 72, 153, 0.2);
         }
 
-        .btn-paypal-direct:hover {
-            background-color: #f2b82e;
+        .btn-add-cart-main:hover {
+            background-color: #db2777;
+            transform: translateY(-2px);
         }
 
         /* Commission Banner Callout */
@@ -488,6 +491,28 @@
             text-decoration: none;
         }
 
+        /* Toast Notification */
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #831843;
+            color: #ffffff;
+            padding: 16px 24px;
+            border-radius: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transform: translateY(150%);
+            transition: transform 0.4s ease-in-out;
+            z-index: 1000;
+        }
+
+        .toast-notification.show {
+            transform: translateY(0);
+        }
+
         /* Mobile Adjustments */
         @media (max-width: 868px) {
             .mobile-menu-btn {
@@ -521,7 +546,7 @@
 
     <!-- 1. TOP ANNOUNCEMENT BAR -->
     <div class="top-banner">
-        🌸 Free Shipping on US Orders $100+* Does not include originals &bull; Handcrafted with Love in Maryland ✨
+        🌸 Free Shipping on US Orders $100+ &bull; Handcrafted with Love in Maryland ✨
     </div>
 
     <!-- 2. BRAND NAVIGATION -->
@@ -540,11 +565,13 @@
                 <li><a href="index.html#categories">Categories</a></li>
                 <li><a href="about.html">About Eca</a></li>
                 <li><a href="project.html" class="active">Shop Gallery</a></li>
+                 <li><a href="members.html" class="active">Become a Member</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li>
                     <a href="cart.html" class="cart-trigger">
                         <i class="fa-solid fa-heart"></i>
                         <span>Cart</span>
+                        <span class="cart-badge" id="cartCount">0</span>
                     </a>
                 </li>
             </ul>
@@ -565,7 +592,7 @@
     <section class="gallery-section">
         <div class="section-intro">
             <h2 class="section-title">Original Works & Keepsakes</h2>
-            <p class="section-subtitle">Explore original canvas paintings, sweet portraits, landscapes, and custom creations by artist Eca. All artworks are available as prints, original canvases, or sticker sets!</p>
+            <p class="section-subtitle">Explore original canvas paintings, sweet portraits, landscapes, sticker sets, and custom creations by artist Eca.</p>
         </div>
 
         <!-- Filter Controls -->
@@ -616,14 +643,9 @@
                     <div class="price-row">
                         <span class="product-price" id="price-18">$18.00</span>
                     </div>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-18">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="ecastyle@keemail.me">
-                        <input type="hidden" name="item_name" id="item-name-18" value="Crimson Rose (Small Print)">
-                        <input type="hidden" name="amount" id="item-amount-18" value="18.00">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <button type="submit" class="btn-paypal-direct"><i class="fa-brands fa-paypal"></i> Buy with PayPal</button>
-                    </form>
+                    <button class="btn-add-cart-main" onclick="addSelectedToCart(18, 'Crimson Rose')">
+                        <i class="fa-solid fa-heart"></i> Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -665,14 +687,9 @@
                     <div class="price-row">
                         <span class="product-price" id="price-22">$18.00</span>
                     </div>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-22">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="ecastyle@keemail.me">
-                        <input type="hidden" name="item_name" id="item-name-22" value="Golden Horizon Home (Small Print)">
-                        <input type="hidden" name="amount" id="item-amount-22" value="18.00">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <button type="submit" class="btn-paypal-direct"><i class="fa-brands fa-paypal"></i> Buy with PayPal</button>
-                    </form>
+                    <button class="btn-add-cart-main" onclick="addSelectedToCart(22, 'Golden Horizon Home')">
+                        <i class="fa-solid fa-heart"></i> Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -713,14 +730,9 @@
                     <div class="price-row">
                         <span class="product-price" id="price-21">$18.00</span>
                     </div>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-21">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="ecastyle@keemail.me">
-                        <input type="hidden" name="item_name" id="item-name-21" value="Spring Whispers (Small Print)">
-                        <input type="hidden" name="amount" id="item-amount-21" value="18.00">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <button type="submit" class="btn-paypal-direct"><i class="fa-brands fa-paypal"></i> Buy with PayPal</button>
-                    </form>
+                    <button class="btn-add-cart-main" onclick="addSelectedToCart(21, 'Spring Whispers')">
+                        <i class="fa-solid fa-heart"></i> Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -762,14 +774,9 @@
                     <div class="price-row">
                         <span class="product-price" id="price-24">$18.00</span>
                     </div>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-24">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="ecastyle@keemail.me">
-                        <input type="hidden" name="item_name" id="item-name-24" value="Cerulean Blossom (Small Print)">
-                        <input type="hidden" name="amount" id="item-amount-24" value="18.00">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <button type="submit" class="btn-paypal-direct"><i class="fa-brands fa-paypal"></i> Buy with PayPal</button>
-                    </form>
+                    <button class="btn-add-cart-main" onclick="addSelectedToCart(24, 'Cerulean Blossom')">
+                        <i class="fa-solid fa-heart"></i> Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -809,14 +816,9 @@
                     <div class="price-row">
                         <span class="product-price" id="price-19">$18.00</span>
                     </div>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-19">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="ecastyle@keemail.me">
-                        <input type="hidden" name="item_name" id="item-name-19" value="Heart of the Meadow (Small Print)">
-                        <input type="hidden" name="amount" id="item-amount-19" value="18.00">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <button type="submit" class="btn-paypal-direct"><i class="fa-brands fa-paypal"></i> Buy with PayPal</button>
-                    </form>
+                    <button class="btn-add-cart-main" onclick="addSelectedToCart(19, 'Heart of the Meadow')">
+                        <i class="fa-solid fa-heart"></i> Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -857,14 +859,9 @@
                     <div class="price-row">
                         <span class="product-price" id="price-20">$18.00</span>
                     </div>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-20">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="ecastyle@keemail.me">
-                        <input type="hidden" name="item_name" id="item-name-20" value="Sunlit Blossom & Friend (Small Print)">
-                        <input type="hidden" name="amount" id="item-amount-20" value="18.00">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <button type="submit" class="btn-paypal-direct"><i class="fa-brands fa-paypal"></i> Buy with PayPal</button>
-                    </form>
+                    <button class="btn-add-cart-main" onclick="addSelectedToCart(20, 'Sunlit Blossom & Friend')">
+                        <i class="fa-solid fa-heart"></i> Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -905,14 +902,9 @@
                     <div class="price-row">
                         <span class="product-price" id="price-17">$18.00</span>
                     </div>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-17">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="ecastyle@keemail.me">
-                        <input type="hidden" name="item_name" id="item-name-17" value="Golden Crown Muse (Small Print)">
-                        <input type="hidden" name="amount" id="item-amount-17" value="18.00">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <button type="submit" class="btn-paypal-direct"><i class="fa-brands fa-paypal"></i> Buy with PayPal</button>
-                    </form>
+                    <button class="btn-add-cart-main" onclick="addSelectedToCart(17, 'Golden Crown Muse')">
+                        <i class="fa-solid fa-heart"></i> Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -953,14 +945,9 @@
                     <div class="price-row">
                         <span class="product-price" id="price-16">$18.00</span>
                     </div>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-16">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="ecastyle@keemail.me">
-                        <input type="hidden" name="item_name" id="item-name-16" value="Pink Lotus Tranquility (Small Print)">
-                        <input type="hidden" name="amount" id="item-amount-16" value="18.00">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <button type="submit" class="btn-paypal-direct"><i class="fa-brands fa-paypal"></i> Buy with PayPal</button>
-                    </form>
+                    <button class="btn-add-cart-main" onclick="addSelectedToCart(16, 'Pink Lotus Tranquility')">
+                        <i class="fa-solid fa-heart"></i> Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -1001,14 +988,9 @@
                     <div class="price-row">
                         <span class="product-price" id="price-23">$18.00</span>
                     </div>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-23">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="ecastyle@keemail.me">
-                        <input type="hidden" name="item_name" id="item-name-23" value="Amber Sunset Bloom (Small Print)">
-                        <input type="hidden" name="amount" id="item-amount-23" value="18.00">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <button type="submit" class="btn-paypal-direct"><i class="fa-brands fa-paypal"></i> Buy with PayPal</button>
-                    </form>
+                    <button class="btn-add-cart-main" onclick="addSelectedToCart(23, 'Amber Sunset Bloom')">
+                        <i class="fa-solid fa-heart"></i> Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -1052,16 +1034,9 @@
                     <div class="price-row">
                         <span class="product-price" id="price-1">$18.00</span>
                     </div>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-1">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="ecastyle@keemail.me">
-                        <input type="hidden" name="item_name" id="item-name-1" value="Happy Valley (Small Print)">
-                        <input type="hidden" name="amount" id="item-amount-1" value="18.00">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <button type="submit" class="btn-paypal-direct">
-                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
-                        </button>
-                    </form>
+                    <button class="btn-add-cart-main" onclick="addSelectedToCart(1, 'Happy Valley')">
+                        <i class="fa-solid fa-heart"></i> Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -1106,16 +1081,9 @@
                     <div class="price-row">
                         <span class="product-price" id="price-2">$18.00</span>
                     </div>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-2">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="ecastyle@keemail.me">
-                        <input type="hidden" name="item_name" id="item-name-2" value="Lady with Roses (Small Print)">
-                        <input type="hidden" name="amount" id="item-amount-2" value="18.00">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <button type="submit" class="btn-paypal-direct">
-                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
-                        </button>
-                    </form>
+                    <button class="btn-add-cart-main" onclick="addSelectedToCart(2, 'Lady with Roses')">
+                        <i class="fa-solid fa-heart"></i> Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -1162,16 +1130,9 @@
                     <div class="price-row">
                         <span class="product-price" id="price-6">$18.00</span>
                     </div>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-6">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="ecastyle@keemail.me">
-                        <input type="hidden" name="item_name" id="item-name-6" value="Ocean Shore at Dusk (Small Print)">
-                        <input type="hidden" name="amount" id="item-amount-6" value="18.00">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <button type="submit" class="btn-paypal-direct">
-                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
-                        </button>
-                    </form>
+                    <button class="btn-add-cart-main" onclick="addSelectedToCart(6, 'Ocean Shore at Dusk')">
+                        <i class="fa-solid fa-heart"></i> Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -1215,16 +1176,9 @@
                     <div class="price-row">
                         <span class="product-price" id="price-3">$18.00</span>
                     </div>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-3">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="ecastyle@keemail.me">
-                        <input type="hidden" name="item_name" id="item-name-3" value="Golden Fish (Small Print)">
-                        <input type="hidden" name="amount" id="item-amount-3" value="18.00">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <button type="submit" class="btn-paypal-direct">
-                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
-                        </button>
-                    </form>
+                    <button class="btn-add-cart-main" onclick="addSelectedToCart(3, 'Golden Fish')">
+                        <i class="fa-solid fa-heart"></i> Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -1268,16 +1222,9 @@
                     <div class="price-row">
                         <span class="product-price" id="price-4">$18.00</span>
                     </div>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-4">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="ecastyle@keemail.me">
-                        <input type="hidden" name="item_name" id="item-name-4" value="The Flower Lady (Small Print)">
-                        <input type="hidden" name="amount" id="item-amount-4" value="18.00">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <button type="submit" class="btn-paypal-direct">
-                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
-                        </button>
-                    </form>
+                    <button class="btn-add-cart-main" onclick="addSelectedToCart(4, 'The Flower Lady')">
+                        <i class="fa-solid fa-heart"></i> Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -1319,16 +1266,9 @@
                     <div class="price-row">
                         <span class="product-price" id="price-9">$18.00</span>
                     </div>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-9">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="ecastyle@keemail.me">
-                        <input type="hidden" name="item_name" id="item-name-9" value="Velvet Afternoon (Small Print)">
-                        <input type="hidden" name="amount" id="item-amount-9" value="18.00">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <button type="submit" class="btn-paypal-direct">
-                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
-                        </button>
-                    </form>
+                    <button class="btn-add-cart-main" onclick="addSelectedToCart(9, 'Velvet Afternoon')">
+                        <i class="fa-solid fa-heart"></i> Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -1371,16 +1311,9 @@
                     <div class="price-row">
                         <span class="product-price" id="price-7">$18.00</span>
                     </div>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-7">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="ecastyle@keemail.me">
-                        <input type="hidden" name="item_name" id="item-name-7" value="Sakura Reverie (Small Print)">
-                        <input type="hidden" name="amount" id="item-amount-7" value="18.00">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <button type="submit" class="btn-paypal-direct">
-                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
-                        </button>
-                    </form>
+                    <button class="btn-add-cart-main" onclick="addSelectedToCart(7, 'Sakura Reverie')">
+                        <i class="fa-solid fa-heart"></i> Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -1423,16 +1356,9 @@
                     <div class="price-row">
                         <span class="product-price" id="price-5">$18.00</span>
                     </div>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-5">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="ecastyle@keemail.me">
-                        <input type="hidden" name="item_name" id="item-name-5" value="Anna the Thoughtful (Small Print)">
-                        <input type="hidden" name="amount" id="item-amount-5" value="18.00">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <button type="submit" class="btn-paypal-direct">
-                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
-                        </button>
-                    </form>
+                    <button class="btn-add-cart-main" onclick="addSelectedToCart(5, 'Anna the Thoughtful')">
+                        <i class="fa-solid fa-heart"></i> Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -1474,16 +1400,9 @@
                     <div class="price-row">
                         <span class="product-price" id="price-8">$18.00</span>
                     </div>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-8">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="ecastyle@keemail.me">
-                        <input type="hidden" name="item_name" id="item-name-8" value="Starlit Solitude (Small Print)">
-                        <input type="hidden" name="amount" id="item-amount-8" value="18.00">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <button type="submit" class="btn-paypal-direct">
-                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
-                        </button>
-                    </form>
+                    <button class="btn-add-cart-main" onclick="addSelectedToCart(8, 'Starlit Solitude')">
+                        <i class="fa-solid fa-heart"></i> Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -1525,16 +1444,9 @@
                     <div class="price-row">
                         <span class="product-price" id="price-10">$18.00</span>
                     </div>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-10">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="ecastyle@keemail.me">
-                        <input type="hidden" name="item_name" id="item-name-10" value="Meadow Serenade (Small Print)">
-                        <input type="hidden" name="amount" id="item-amount-10" value="18.00">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <button type="submit" class="btn-paypal-direct">
-                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
-                        </button>
-                    </form>
+                    <button class="btn-add-cart-main" onclick="addSelectedToCart(10, 'Meadow Serenade')">
+                        <i class="fa-solid fa-heart"></i> Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -1576,16 +1488,9 @@
                     <div class="price-row">
                         <span class="product-price" id="price-11">$18.00</span>
                     </div>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-11">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="ecastyle@keemail.me">
-                        <input type="hidden" name="item_name" id="item-name-11" value="Porcelain Muse (Small Print)">
-                        <input type="hidden" name="amount" id="item-amount-11" value="18.00">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <button type="submit" class="btn-paypal-direct">
-                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
-                        </button>
-                    </form>
+                    <button class="btn-add-cart-main" onclick="addSelectedToCart(11, 'Porcelain Muse')">
+                        <i class="fa-solid fa-heart"></i> Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -1627,16 +1532,9 @@
                     <div class="price-row">
                         <span class="product-price" id="price-12">$18.00</span>
                     </div>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-12">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="ecastyle@keemail.me">
-                        <input type="hidden" name="item_name" id="item-name-12" value="Amber Reverie (Small Print)">
-                        <input type="hidden" name="amount" id="item-amount-12" value="18.00">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <button type="submit" class="btn-paypal-direct">
-                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
-                        </button>
-                    </form>
+                    <button class="btn-add-cart-main" onclick="addSelectedToCart(12, 'Amber Reverie')">
+                        <i class="fa-solid fa-heart"></i> Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -1678,16 +1576,9 @@
                     <div class="price-row">
                         <span class="product-price" id="price-13">$18.00</span>
                     </div>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-13">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="ecastyle@keemail.me">
-                        <input type="hidden" name="item_name" id="item-name-13" value="Moonlit Bramble (Small Print)">
-                        <input type="hidden" name="amount" id="item-amount-13" value="18.00">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <button type="submit" class="btn-paypal-direct">
-                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
-                        </button>
-                    </form>
+                    <button class="btn-add-cart-main" onclick="addSelectedToCart(13, 'Moonlit Bramble')">
+                        <i class="fa-solid fa-heart"></i> Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -1729,16 +1620,9 @@
                     <div class="price-row">
                         <span class="product-price" id="price-14">$18.00</span>
                     </div>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-14">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="ecastyle@keemail.me">
-                        <input type="hidden" name="item_name" id="item-name-14" value="Lavender Haiku (Small Print)">
-                        <input type="hidden" name="amount" id="item-amount-14" value="18.00">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <button type="submit" class="btn-paypal-direct">
-                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
-                        </button>
-                    </form>
+                    <button class="btn-add-cart-main" onclick="addSelectedToCart(14, 'Lavender Haiku')">
+                        <i class="fa-solid fa-heart"></i> Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -1780,16 +1664,9 @@
                     <div class="price-row">
                         <span class="product-price" id="price-15">$18.00</span>
                     </div>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="form-15">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="ecastyle@keemail.me">
-                        <input type="hidden" name="item_name" id="item-name-15" value="Ethereal Swan (Small Print)">
-                        <input type="hidden" name="amount" id="item-amount-15" value="18.00">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <button type="submit" class="btn-paypal-direct">
-                            <i class="fa-brands fa-paypal"></i> Buy with PayPal
-                        </button>
-                    </form>
+                    <button class="btn-add-cart-main" onclick="addSelectedToCart(15, 'Ethereal Swan')">
+                        <i class="fa-solid fa-heart"></i> Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -1812,8 +1689,15 @@
         <p>Maryland, USA &bull; Phone: +301 288 6622 &bull; Email: <a href="mailto:ecastyle@keemail.me">ecastyle@keemail.me</a></p>
     </footer>
 
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast-notification" id="toast">
+        <i class="fa-solid fa-heart" style="color: #fbcfe8;"></i>
+        <span id="toastMessage">Item added to cart!</span>
+    </div>
+
     <!-- JavaScript interactions -->
     <script>
+        let cart = [];
         const cardStates = { 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 1, 8: 1, 9: 1, 10: 1, 11: 1, 12: 1, 13: 1, 14: 1, 15: 1, 16: 1, 17: 1, 18: 1, 19: 1, 20: 1, 21: 1, 22: 1, 23: 1, 24: 1 };
 
         function switchImage(cardId, direction) {
@@ -1839,14 +1723,30 @@
         function updateCardPrice(cardId, baseTitle) {
             const selectElem = document.getElementById(`size-${cardId}`);
             const selectedOption = selectElem.options[selectElem.selectedIndex];
-            
             const price = selectedOption.value;
-            const sizeLabel = selectedOption.getAttribute('data-size');
-            
             document.getElementById(`price-${cardId}`).innerText = `$${parseFloat(price).toFixed(2)}`;
+        }
+
+        function addSelectedToCart(cardId, baseTitle) {
+            const selectElem = document.getElementById(`size-${cardId}`);
+            const selectedOption = selectElem.options[selectElem.selectedIndex];
+            const price = parseFloat(selectedOption.value);
+            const sizeLabel = selectedOption.getAttribute('data-size');
+            const fullName = `${baseTitle} (${sizeLabel})`;
             
-            document.getElementById(`item-name-${cardId}`).value = `${baseTitle} (${sizeLabel})`;
-            document.getElementById(`item-amount-${cardId}`).value = `${price}.00`;
+            cart.push({ title: fullName, price: price });
+            document.getElementById('cartCount').innerText = cart.length;
+            showToast(`"${fullName}" added to your bag! 💖`);
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            toastMessage.innerText = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
         }
 
         // Category Filter
