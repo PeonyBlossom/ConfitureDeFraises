@@ -491,6 +491,58 @@
             text-decoration: none;
         }
 
+        /* Modal Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(74, 59, 82, 0.6);
+            backdrop-filter: blur(4px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-card {
+            background: #ffffff;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 500px;
+            padding: 32px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 2px solid #fce7f3;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 18px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 22px;
+            color: #866380;
+            cursor: pointer;
+        }
+
+        .modal-item-summary {
+            background: #fdf2f8;
+            border: 1px solid #fbcfe8;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+
         /* Toast Notification */
         .toast-notification {
             position: fixed;
@@ -565,14 +617,13 @@
                 <li><a href="index.html#categories">Categories</a></li>
                 <li><a href="about.html">About Eca</a></li>
                 <li><a href="project.html" class="active">Shop Gallery</a></li>
-                 <li><a href="members.html" class="active">Become a Member</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li>
-                    <a href="cart.html" class="cart-trigger">
+                    <div class="cart-trigger" onclick="openCartModal()">
                         <i class="fa-solid fa-heart"></i>
                         <span>Cart</span>
                         <span class="cart-badge" id="cartCount">0</span>
-                    </a>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -603,7 +654,7 @@
             <button class="filter-btn" data-filter="abstract">Abstract</button>
         </div>
 
-        <!-- Gallery Grid (Ordered: 18, 22, 21, 24, 19, 20, 17, 16, 23 first, then 1-15, with Sticker option in every dropdown) -->
+        <!-- Gallery Grid -->
         <div class="grid" id="galleryGrid">
 
             <!-- 1. Project 18 (Crimson Rose) -->
@@ -1682,6 +1733,45 @@
         </div>
     </section>
 
+    <!-- CART OVERVIEW MODAL WITH SHIPPING LOGIC -->
+    <div class="modal-overlay" id="cartModal">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeModal('cartModal')">&times;</button>
+            <h2 style="font-size:24px; color:#831843; margin-bottom:8px;">Your Shopping Bag 🌸</h2>
+            <p style="font-size:13px; color:#866380; margin-bottom:15px;">Review your sweet items before checkout</p>
+            
+            <div id="cartItemsList">
+                <p style="text-align:center; color:#866380; padding:20px 0;">Your shopping bag is currently empty.</p>
+            </div>
+
+            <div style="margin: 15px 0;">
+                <label class="size-label" for="shippingDestination">Shipping Destination:</label>
+                <select id="shippingDestination" class="size-select" onchange="updateCartUI()">
+                    <option value="US">United States (3% fee on original artworks)</option>
+                    <option value="Europe">Europe (5% fee on original artworks)</option>
+                    <option value="Elsewhere">Elsewhere (10% fee on original artworks)</option>
+                </select>
+            </div>
+
+            <div class="modal-item-summary" style="margin-top:15px;">
+                <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-size:13px; color:#704d6d;">
+                    <span>Subtotal:</span>
+                    <span id="cartSubtotalAmount">$0.00</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:8px; font-size:13px; color:#704d6d;">
+                    <span>Shipping Fee:</span>
+                    <span id="cartShippingAmount">$0.00</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; font-weight:700; color:#831843; font-size:18px; border-top:1px dashed #fbcfe8; padding-top:8px;">
+                    <span>Grand Total:</span>
+                    <span id="cartTotalAmount" style="color:#be185d;">$0.00</span>
+                </div>
+            </div>
+
+            <div id="cart-paypal-container"></div>
+        </div>
+    </div>
+
     <!-- FOOTER -->
     <footer>
         <p><strong>EcaStyle Studio &bull; Fine Art & Sweet Cottagecore Goods</strong></p>
@@ -1694,6 +1784,9 @@
         <i class="fa-solid fa-heart" style="color: #fbcfe8;"></i>
         <span id="toastMessage">Item added to cart!</span>
     </div>
+
+    <!-- PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
 
     <!-- JavaScript interactions -->
     <script>
@@ -1723,8 +1816,8 @@
         function updateCardPrice(cardId, baseTitle) {
             const selectElem = document.getElementById(`size-${cardId}`);
             const selectedOption = selectElem.options[selectElem.selectedIndex];
-            const price = selectedOption.value;
-            document.getElementById(`price-${cardId}`).innerText = `$${parseFloat(price).toFixed(2)}`;
+            const price = parseFloat(selectedOption.value);
+            document.getElementById(`price-${cardId}`).innerText = `$${price.toFixed(2)}`;
         }
 
         function addSelectedToCart(cardId, baseTitle) {
@@ -1732,11 +1825,88 @@
             const selectedOption = selectElem.options[selectElem.selectedIndex];
             const price = parseFloat(selectedOption.value);
             const sizeLabel = selectedOption.getAttribute('data-size');
+            const isOriginal = sizeLabel.toLowerCase().includes('original');
             const fullName = `${baseTitle} (${sizeLabel})`;
             
-            cart.push({ title: fullName, price: price });
+            cart.push({ title: fullName, price: price, isOriginal: isOriginal });
             document.getElementById('cartCount').innerText = cart.length;
             showToast(`"${fullName}" added to your bag! 💖`);
+        }
+
+        function updateCartUI() {
+            document.getElementById('cartCount').innerText = cart.length;
+            const container = document.getElementById('cartItemsList');
+            const subtotalElement = document.getElementById('cartSubtotalAmount');
+            const shippingElement = document.getElementById('cartShippingAmount');
+            const totalElement = document.getElementById('cartTotalAmount');
+
+            if (cart.length === 0) {
+                container.innerHTML = `<p style="text-align:center; color:#866380; padding:20px 0;">Your shopping bag is currently empty.</p>`;
+                subtotalElement.innerText = '$0.00';
+                shippingElement.innerText = '$0.00';
+                totalElement.innerText = '$0.00';
+                document.getElementById('cart-paypal-container').innerHTML = '';
+                return;
+            }
+
+            let subtotal = 0;
+            let originalSubtotal = 0;
+            let nonOriginalSubtotal = 0;
+            let html = '';
+
+            cart.forEach((item, index) => {
+                subtotal += item.price;
+                if (item.isOriginal) {
+                    originalSubtotal += item.price;
+                } else {
+                    nonOriginalSubtotal += item.price;
+                }
+                html += `
+                    <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px dashed #fce7f3; font-size:13px;">
+                        <div><strong>${item.title}</strong></div>
+                        <div>
+                            <span style="color:#be185d; font-weight:700;">$${item.price.toFixed(2)}</span>
+                            <button onclick="removeFromCart(${index})" style="background:none; border:none; color:#ef4444; margin-left:10px; cursor:pointer;"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            subtotalElement.innerText = `$${subtotal.toFixed(2)}`;
+
+            // Shipping calculation rules
+            const destination = document.getElementById('shippingDestination').value;
+            let rate = 0.03; // US
+            if (destination === 'Europe') rate = 0.05;
+            if (destination === 'Elsewhere') rate = 0.10;
+
+            let originalShipping = 0;
+            if (originalSubtotal > 0) {
+                originalShipping = originalSubtotal * rate;
+            }
+
+            let nonOriginalShipping = 0;
+            if (nonOriginalSubtotal > 0) {
+                if (nonOriginalSubtotal >= 100) {
+                    nonOriginalShipping = 0; // Free shipping over $100 for non-originals
+                } else {
+                    nonOriginalShipping = nonOriginalSubtotal * rate;
+                }
+            }
+
+            let totalShipping = originalShipping + nonOriginalShipping;
+            shippingElement.innerText = totalShipping === 0 ? 'FREE' : `$${totalShipping.toFixed(2)}`;
+
+            let grandTotal = subtotal + totalShipping;
+            totalElement.innerText = `$${grandTotal.toFixed(2)}`;
+
+            renderCartPayPalButton(grandTotal);
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
         }
 
         function showToast(message) {
@@ -1747,6 +1917,42 @@
             setTimeout(() => {
                 toast.classList.remove('show');
             }, 3000);
+        }
+
+        function openModal(id) {
+            document.getElementById(id).classList.add('active');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+        }
+
+        function openCartModal() {
+            updateCartUI();
+            openModal('cartModal');
+        }
+
+        function renderCartPayPalButton(totalAmount) {
+            const container = document.getElementById('cart-paypal-container');
+            container.innerHTML = '';
+            if (window.paypal && typeof paypal.Buttons === 'function' && totalAmount > 0) {
+                paypal.Buttons({
+                    style: { layout: 'vertical', color: 'gold', shape: 'pill' },
+                    createOrder: function(data, actions) {
+                        return actions.order.create({
+                            purchase_units: [{ description: 'EcaStyle Shop Bag', amount: { value: totalAmount.toString() } }]
+                        });
+                    },
+                    onApprove: function(data, actions) {
+                        return actions.order.capture().then(function(details) {
+                            cart = [];
+                            updateCartUI();
+                            closeModal('cartModal');
+                            showToast(`Thank you ${details.payer.name.given_name}! Order complete 💕`);
+                        });
+                    }
+                }).render('#cart-paypal-container');
+            }
         }
 
         // Category Filter
