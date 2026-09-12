@@ -1747,9 +1747,13 @@
             <div style="margin: 15px 0;">
                 <label class="size-label" for="shippingDestination">Shipping Destination:</label>
                 <select id="shippingDestination" class="size-select" onchange="updateCartUI()">
-                    <option value="US">United States (3% fee on original artworks)</option>
-                    <option value="Europe">Europe (5% fee on original artworks)</option>
-                    <option value="Elsewhere">Elsewhere (10% fee on original artworks)</option>
+                    <option value="US-Other">United States (Standard 7%)</option>
+                    <option value="US-DMV">DMV Metro Area (DC, MD, Northern VA - 3%)</option>
+                    <option value="US-AKHI">Alaska & Hawaii (18%)</option>
+                    <option value="CA-MX">Canada & Mexico (17%)</option>
+                    <option value="Latin-America">Elsewhere in Latin America (19%)</option>
+                    <option value="Europe">Europe (22%)</option>
+                    <option value="Elsewhere">Elsewhere (24%)</option>
                 </select>
             </div>
 
@@ -1758,9 +1762,13 @@
                     <span>Subtotal:</span>
                     <span id="cartSubtotalAmount">$0.00</span>
                 </div>
-                <div style="display:flex; justify-content:space-between; margin-bottom:8px; font-size:13px; color:#704d6d;">
+                <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-size:13px; color:#704d6d;">
                     <span>Shipping Fee:</span>
                     <span id="cartShippingAmount">$0.00</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:8px; font-size:11px; color:#b45309;" id="handlingFeeNoteContainer">
+                    <span id="cartHandlingNote">Original Preservation & Authenticity Handling:</span>
+                    <span id="cartHandlingAmount">$0.00</span>
                 </div>
                 <div style="display:flex; justify-content:space-between; font-weight:700; color:#831843; font-size:18px; border-top:1px dashed #fbcfe8; padding-top:8px;">
                     <span>Grand Total:</span>
@@ -1838,12 +1846,16 @@
             const container = document.getElementById('cartItemsList');
             const subtotalElement = document.getElementById('cartSubtotalAmount');
             const shippingElement = document.getElementById('cartShippingAmount');
+            const handlingElement = document.getElementById('cartHandlingAmount');
+            const handlingContainer = document.getElementById('handlingFeeNoteContainer');
             const totalElement = document.getElementById('cartTotalAmount');
 
             if (cart.length === 0) {
                 container.innerHTML = `<p style="text-align:center; color:#866380; padding:20px 0;">Your shopping bag is currently empty.</p>`;
                 subtotalElement.innerText = '$0.00';
                 shippingElement.innerText = '$0.00';
+                handlingElement.innerText = '$0.00';
+                handlingContainer.style.display = 'none';
                 totalElement.innerText = '$0.00';
                 document.getElementById('cart-paypal-container').innerHTML = '';
                 return;
@@ -1852,12 +1864,14 @@
             let subtotal = 0;
             let originalSubtotal = 0;
             let nonOriginalSubtotal = 0;
+            let hasOriginal = false;
             let html = '';
 
             cart.forEach((item, index) => {
                 subtotal += item.price;
                 if (item.isOriginal) {
                     originalSubtotal += item.price;
+                    hasOriginal = true;
                 } else {
                     nonOriginalSubtotal += item.price;
                 }
@@ -1875,12 +1889,17 @@
             container.innerHTML = html;
             subtotalElement.innerText = `$${subtotal.toFixed(2)}`;
 
-            // Shipping calculation rules
+            // Destination rate selection
             const destination = document.getElementById('shippingDestination').value;
-            let rate = 0.03; // US
-            if (destination === 'Europe') rate = 0.05;
-            if (destination === 'Elsewhere') rate = 0.10;
+            let rate = 0.07; // US Other
+            if (destination === 'US-DMV') rate = 0.03;
+            else if (destination === 'US-AKHI') rate = 0.18;
+            else if (destination === 'CA-MX') rate = 0.17;
+            else if (destination === 'Latin-America') rate = 0.19;
+            else if (destination === 'Europe') rate = 0.22;
+            else if (destination === 'Elsewhere') rate = 0.24;
 
+            // Shipping calculation rules
             let originalShipping = 0;
             if (originalSubtotal > 0) {
                 originalShipping = originalSubtotal * rate;
@@ -1888,8 +1907,8 @@
 
             let nonOriginalShipping = 0;
             if (nonOriginalSubtotal > 0) {
-                if (nonOriginalSubtotal >= 100) {
-                    nonOriginalShipping = 0; // Free shipping over $100 for non-originals
+                if (!hasOriginal && nonOriginalSubtotal >= 100) {
+                    nonOriginalShipping = 0; // Free shipping over $100 if NO original painting is present
                 } else {
                     nonOriginalShipping = nonOriginalSubtotal * rate;
                 }
@@ -1898,7 +1917,16 @@
             let totalShipping = originalShipping + nonOriginalShipping;
             shippingElement.innerText = totalShipping === 0 ? 'FREE' : `$${totalShipping.toFixed(2)}`;
 
-            let grandTotal = subtotal + totalShipping;
+            // Handling fee ($7 just for originals, covers preservation, protection & certificate)
+            let handlingFee = hasOriginal ? 7.00 : 0.00;
+            if (hasOriginal) {
+                handlingContainer.style.display = 'flex';
+                handlingElement.innerText = `$${handlingFee.toFixed(2)}`;
+            } else {
+                handlingContainer.style.display = 'none';
+            }
+
+            let grandTotal = subtotal + totalShipping + handlingFee;
             totalElement.innerText = `$${grandTotal.toFixed(2)}`;
 
             renderCartPayPalButton(grandTotal);
